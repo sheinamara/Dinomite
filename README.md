@@ -3,7 +3,8 @@
  -A development log that summarizes daily progress/changes/bugs. (Updated approximately once for every day you work) 
  
  Jeff's Development Log:
- 1/3: Learned terminal stuff.
+ 1/3: Review terminal manipulation and make changes to fit our game.
  
  Amara's Development Log:
- 1/3: Made the repo!
+ 1/3: Start making classes.
+ 
