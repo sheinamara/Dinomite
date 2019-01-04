@@ -6,5 +6,5 @@
  1/3: Review terminal manipulation and make changes to fit our game.
  
  Amara's Development Log:
- 1/3: Start making classes.
+ 1/3: Created three classes.
  
