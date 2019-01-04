@@ -7,4 +7,5 @@
  
  Amara's Development Log:
  1/3: Created three classes.
+ 1/4: Added javadoc to three classes and made the variables for each class.
  
