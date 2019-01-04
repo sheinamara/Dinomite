@@ -11,9 +11,4 @@ public class Dinosaur{
   * Gradually, the speed will increase with time to increase the difficulty of the game
   */ 
   private double speed;
-
-// unnecessary for now?
-  /*
-  private int power;
-  */
 }
