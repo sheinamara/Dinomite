@@ -13,4 +13,6 @@ Amara's Development Log:
 1/3: Created three classes.
 
 1/4: Added javadoc to three classes and made the variables for each class. Began working on Dinosaur.java and completed the constructor and get methods.
+
+1/7: Focusing on dinosaur.java. Trying to draw the dinosaur via ASCII.
  
