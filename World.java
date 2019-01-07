@@ -32,16 +32,19 @@ public class World {
 
 		while (true) {
 
+			TerminalSize testsize = screen.getTerminalSize();
+			if (testsize.getRows() != size.getRows() || testsize.getColumns() != size.getColumns()) {
+				screen.clear();
+				size = testsize;
+				tg.drawLine(0,size.getRows()-1,size.getColumns()-1,size.getRows()-1,'\u2571');
+				tg.drawLine(0,size.getRows()-2,size.getColumns()-1,size.getRows()-2,'\u2571');
+				tg.drawLine(0,size.getRows()-3,size.getColumns()-1,size.getRows()-3,'\u2581');
+			}
+
 			// User Input
 			KeyStroke key = screen.pollInput();
 			if (key != null) {
-				screen.setCharacter(x, y, new TextCharacter(' '));
-
 				if      (key.getKeyType() == KeyType.Escape) break;
-				else if (key.getKeyType() == KeyType.ArrowUp) y--;
-
-				putString(1, 1, screen, key+"                 ");
-
 			}
 
 			// Score Keeping
@@ -51,7 +54,6 @@ public class World {
 			screen.doResizeIfNecessary();
 			screen.refresh();
 		}
-
 		screen.stopScreen();
 	}
 
