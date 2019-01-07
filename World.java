@@ -23,7 +23,9 @@ public class World {
 		long tStart = System.currentTimeMillis();
 		long lastSecond = 0;
 
+		Dinosaur dino = new Dinosaur(1,1);
 
+		// Draws Floor
 		TerminalSize size = screen.getTerminalSize();
 		TextGraphics tg = screen.newTextGraphics();
 		tg.drawLine(0,size.getRows()-1,size.getColumns()-1,size.getRows()-1,'\u2571');
@@ -31,7 +33,7 @@ public class World {
 		tg.drawLine(0,size.getRows()-3,size.getColumns()-1,size.getRows()-3,'\u2581');
 
 		while (true) {
-
+			// This checks change in terminal size and then will redraw world if size changes.
 			TerminalSize testsize = screen.getTerminalSize();
 			if (testsize.getRows() != size.getRows() || testsize.getColumns() != size.getColumns()) {
 				screen.clear();
@@ -46,6 +48,10 @@ public class World {
 			if (key != null) {
 				if      (key.getKeyType() == KeyType.Escape) break;
 			}
+
+			// Dinosaur Drawn
+			dino.draw(4,size.getRows()-4,tg);
+
 
 			// Score Keeping
 			long tEnd = System.currentTimeMillis();
