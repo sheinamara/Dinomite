@@ -4,7 +4,7 @@
  
  Jeff's Development Log:
  1/3: Review terminal manipulation and make changes to fit our game.
- 1/4: 
+ 1/6: Made class World implementing Lanterna 3.0. Created basic game interface, edited Dinosaur class, and implemented into World.
  
  Amara's Development Log:
  1/3: Created three classes.
