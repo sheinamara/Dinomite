@@ -59,7 +59,7 @@ public class World {
 			//       block user input while jump in progress.
 
 			// Draws Dinosaur (gotta change location of this later to take into account jump time)
-			dino.draw(4,size.getRows()-4,tg);
+			dino.draw(4,size.getRows()-,tg);
 
 
 			// Score Keeping
