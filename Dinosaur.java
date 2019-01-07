@@ -45,10 +45,11 @@ public class Dinosaur{
     return speed;
   }
 
-  public void draw(int col, int row, TextGraphics tg) {
+  public void draw(int col, int row, TextGraphics tg){
     tg.setCharacter(col,row,'\u058E');
   }
 
   public void jump(){
+    
   }
 }

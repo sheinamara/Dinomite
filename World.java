@@ -33,7 +33,8 @@ public class World {
 		tg.drawLine(0,size.getRows()-3,size.getColumns()-1,size.getRows()-3,'\u2581');
 
 		while (true) {
-			// This checks change in terminal size and then will redraw world if size changes.
+
+			// Resize World and Game
 			TerminalSize testsize = screen.getTerminalSize();
 			if (testsize.getRows() != size.getRows() || testsize.getColumns() != size.getColumns()) {
 				screen.clear();
@@ -46,10 +47,18 @@ public class World {
 			// User Input
 			KeyStroke key = screen.pollInput();
 			if (key != null) {
-				if      (key.getKeyType() == KeyType.Escape) break;
+				if (key.getKeyType() == KeyType.Escape) break;
+				/*
+				if (key.getKeyType() == KeyType.ArrowUp) {
+					dino.jump();
+				}
+				*/
 			}
 
-			// Dinosaur Drawn
+			// Note: jump changes drawn position, has to keep drawing it at certain position for certain time.
+			//       block user input while jump in progress.
+
+			// Draws Dinosaur (gotta change location of this later to take into account jump time)
 			dino.draw(4,size.getRows()-4,tg);
 
 
