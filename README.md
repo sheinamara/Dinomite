@@ -10,11 +10,15 @@ Jeff's Development Log:
 
 1/7: Edited World class's interaction with Dinosaur.
 
+1/8: Edited user input timing in World class.
+
 Amara's Development Log:
 
 1/3: Created three classes.
 
 1/4: Added javadoc to three classes and made the variables for each class. Began working on Dinosaur.java and completed the constructor and get methods.
 
-1/7: Focusing on dinosaur.java. Trying to draw the dinosaur via ASCII.
+1/7: Focusing on Dinosaur.java. Trying to draw the dinosaur via ASCII.
+
+1/8: Successfully made the drawing function in the Dinosaur class. Dinosaur appears on terminal screen!
  
