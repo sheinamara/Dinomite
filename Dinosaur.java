@@ -84,22 +84,6 @@ public class Dinosaur{
   public void jump(){
     
   }
-  public static void putString(int x, int y, Screen screen, String str) {
-		for (int i = 0; i < str.length(); ++i) {
-			screen.setCharacter(x+i, y, new TextCharacter(str.charAt(i)));
-		}
-	}
-
-
-  public static void main(String[] args) throws IOException{
-     Screen screen = new DefaultTerminalFactory().createScreen();
-     screen.startScreen();
-     TextGraphics tg = screen.newTextGraphics();
-     Dinosaur trex = new Dinosaur(10,20);
-     putString(1, 2, screen, "Health: "+ trex.getHealth());
-     putString(2, 2, screen, "Speed: "+ trex.getSpeed());
-     trex.draw(5, 8, tg);
-  }
 }
 
 
