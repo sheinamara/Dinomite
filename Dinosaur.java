@@ -1,4 +1,4 @@
-import com.googlecode.lanterna.*;
+ import com.googlecode.lanterna.*;
 import com.googlecode.lanterna.input.*;
 import com.googlecode.lanterna.terminal.*;
 import com.googlecode.lanterna.screen.*;
@@ -82,6 +82,7 @@ public class Dinosaur{
   }
 
   public void jump(){
+
     
   }
 }
