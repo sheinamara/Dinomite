@@ -46,7 +46,9 @@ public class Dinosaur{
   }
 
   public void draw(int col, int row, TextGraphics tg){
-    tg.setCharacter(col,row,'\u058E');
+    tg.setCharacter(col,row,'_');
+    tg.setCharacter(col+1,row,'_');
+    tg.
   }
 
   public void jump(){

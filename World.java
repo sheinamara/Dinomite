@@ -22,8 +22,10 @@ public class World {
 
 		long tStart = System.currentTimeMillis();
 		long lastSecond = 0;
+		long temptime = 0;
 
 		Dinosaur dino = new Dinosaur(1,1);
+		boolean pauseInput = false;
 
 		// Draws Floor
 		TerminalSize size = screen.getTerminalSize();
@@ -48,12 +50,16 @@ public class World {
 			KeyStroke key = screen.pollInput();
 			if (key != null) {
 				if (key.getKeyType() == KeyType.Escape) break;
-				/*
-				if (key.getKeyType() == KeyType.ArrowUp) {
+				
+				if (key.getKeyType() == KeyType.ArrowUp && !pauseInput) {
 					dino.jump();
+					pauseInput = false;
+					temptime = millis / 100;
 				}
-				*/
 			}
+
+			// Time check for jump
+			if (millis / 100 >= temptime + 15) pauseInput = true;
 
 			// Note: jump changes drawn position, has to keep drawing it at certain position for certain time.
 			//       block user input while jump in progress.
