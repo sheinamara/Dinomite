@@ -95,6 +95,50 @@ public class Dinosaur{
     tg.setCharacter(col+6,row-2,']');
     // neck DUCKED DOWN
     tg.setCharacter(col+3,row-2,'=')
+    // head original
+    tg.setCharacter(col,row-4,'null');
+    tg.setCharacter(col+2,row-4,'null');
+    tg.setCharacter(col+3,row-4,'null');
+    // neck original
+    tg.setCharacter(col,row-3,'null');
+    tg.setCharacter(col+1,row-3,'null');
+    // upper body
+    tg.setCharacter(col-6,row-2,'\\');
+    tg.setCharacter(col-5,row-2,'\\');
+    tg.setCharacter(col-4,row-2,'[');
+    tg.setCharacter(col-3,row-2,'-');
+    tg.setCharacter(col-2,row-2,'-');
+    tg.setCharacter(col-1,row-2,'-');
+    tg.setCharacter(col,row-2,'-');
+    tg.setCharacter(col+1,row-2,']');
+    tg.setCharacter(col+2,row-2,'=');
+    // lower body
+    tg.setCharacter(col-4,row-1,'[');
+    tg.setCharacter(col-3,row-1,'-');
+    tg.setCharacter(col-2,row-1,'-');
+    tg.setCharacter(col-1,row-1,'-');
+    tg.setCharacter(col,row-1,'-');
+    tg.setCharacter(col+1,row-1,']');
+    // legs
+    tg.setCharacter(col-3,row,'|');
+    tg.setCharacter(col,row,'|');
+
+  }
+
+  public void unduck(){
+    // head ducked down
+    tg.setCharacter(col+4,row-2,'null');
+    tg.setCharacter(col+5,row-2,'null');
+    tg.setCharacter(col+6,row-2,'null');
+    // neck ducked down
+    tg.setCharacter(col+3,row-2,'null')
+    // head original
+    tg.setCharacter(col,row-4,'[');
+    tg.setCharacter(col+2,row-4,'-');
+    tg.setCharacter(col+3,row-4,']');
+    // neck original
+    tg.setCharacter(col,row-3,'/');
+    tg.setCharacter(col+1,row-3,'/');
     // upper body
     tg.setCharacter(col-6,row-2,'\\');
     tg.setCharacter(col-5,row-2,'\\');
