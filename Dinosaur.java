@@ -81,7 +81,40 @@ public class Dinosaur{
     tg.setCharacter(col,row,'|');
   }
 
-  public void jump(){
+// NEED TO TEST
+// need to make it so it "unducks"
+// should we just make an unduck function??? (makes sense)
+// characters should be in the right positions
+// need to add some keystrokes thingys to make sure it unducks
+// do we need to add said if/else coding to the original draw??? no right
+
+  public void duck(){
+    // head DUCKED DOWN
+    tg.setCharacter(col+4,row-2,'[');
+    tg.setCharacter(col+5,row-2,'-');
+    tg.setCharacter(col+6,row-2,']');
+    // neck DUCKED DOWN
+    tg.setCharacter(col+3,row-2,'=')
+    // upper body
+    tg.setCharacter(col-6,row-2,'\\');
+    tg.setCharacter(col-5,row-2,'\\');
+    tg.setCharacter(col-4,row-2,'[');
+    tg.setCharacter(col-3,row-2,'-');
+    tg.setCharacter(col-2,row-2,'-');
+    tg.setCharacter(col-1,row-2,'-');
+    tg.setCharacter(col,row-2,'-');
+    tg.setCharacter(col+1,row-2,']');
+    tg.setCharacter(col+2,row-2,'=');
+    // lower body
+    tg.setCharacter(col-4,row-1,'[');
+    tg.setCharacter(col-3,row-1,'-');
+    tg.setCharacter(col-2,row-1,'-');
+    tg.setCharacter(col-1,row-1,'-');
+    tg.setCharacter(col,row-1,'-');
+    tg.setCharacter(col+1,row-1,']');
+    // legs
+    tg.setCharacter(col-3,row,'|');
+    tg.setCharacter(col,row,'|');
 
   }
 }

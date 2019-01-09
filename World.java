@@ -57,7 +57,7 @@ public class World {
 			KeyStroke key = screen.pollInput();
 			if (key != null) {
 				if (key.getKeyType() == KeyType.Escape) break;
-				
+
 				if (key.getKeyType() == KeyType.ArrowUp && !pauseInput) {
 					dino.jump();
 					pauseInput = false;
@@ -72,7 +72,7 @@ public class World {
 			//       block user input while jump in progress.
 
 			// Draws Dinosaur (gotta change location of this later to take into account jump time)
-			dino.draw(4,size.getRows()-1,tg);
+			dino.draw(10,size.getRows()-3,tg);
 		}
 		screen.stopScreen();
 	}
