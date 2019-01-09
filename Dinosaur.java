@@ -46,19 +46,19 @@ public class Dinosaur{
   }
 
   /**
-  * Draws a default diagram on the terminal from the head of a dinosaur.
-  * @param col is the "x-value" of the first character of the dinosaur head in a standard coordinate system.
-  * @param row is the "y-value" of the first character of the dinosaur head in a standard coordinate system.
+  * Draws a default dinosaur that is five units tall and ten units wide.
+  * @param col is the "x-value" of the left character of the dinosaur head in a standard coordinate system.
+  * @param row is the "y-value" of the right leg of the dinosaur head in a standard coordinate system.
   * @param tg is an instance from TextGraphics.
   */
   public void draw(int col, int row, TextGraphics tg){
     // head
-    tg.setCharacter(col,row,'[');
-    tg.setCharacter(col+2,row,'-');
-    tg.setCharacter(col+3,row,']');
+    tg.setCharacter(col,row-4,'[');
+    tg.setCharacter(col+2,row-4,'-');
+    tg.setCharacter(col+3,row-4,']');
     // neck
-    tg.setCharacter(col,row-1,'/');
-    tg.setCharacter(col+1,row-1,'/');
+    tg.setCharacter(col,row-3,'/');
+    tg.setCharacter(col+1,row-3,'/');
     // upper body
     tg.setCharacter(col-6,row-2,'\\');
     tg.setCharacter(col-5,row-2,'\\');
@@ -70,20 +70,18 @@ public class Dinosaur{
     tg.setCharacter(col+1,row-2,']');
     tg.setCharacter(col+2,row-2,'=');
     // lower body
-    tg.setCharacter(col-4,row-3,'[');
-    tg.setCharacter(col-3,row-3,'-');
-    tg.setCharacter(col-2,row-3,'-');
-    tg.setCharacter(col-1,row-3,'-');
-    tg.setCharacter(col,row-3,'-');
-    tg.setCharacter(col+1,row-3,']');
+    tg.setCharacter(col-4,row-1,'[');
+    tg.setCharacter(col-3,row-1,'-');
+    tg.setCharacter(col-2,row-1,'-');
+    tg.setCharacter(col-1,row-1,'-');
+    tg.setCharacter(col,row-1,'-');
+    tg.setCharacter(col+1,row-1,']');
     // legs
-    tg.setCharacter(col-3,row-4,'|');
-    tg.setCharacter(col,row-4,'|');
+    tg.setCharacter(col-3,row,'|');
+    tg.setCharacter(col,row,'|');
   }
 
   public void jump(){
-    
+
   }
 }
-
-
