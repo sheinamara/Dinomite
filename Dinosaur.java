@@ -48,7 +48,7 @@ public class Dinosaur{
   /**
   * Draws a default dinosaur that is five units tall and ten units wide.
   * @param col is the "x-value" of the left character of the dinosaur head in a standard coordinate system.
-  * @param row is the "y-value" of the right leg of the dinosaur head in a standard coordinate system.
+  * @param row is the "y-value" of the right leg of the dinosaur's legs in a standard coordinate system.
   * @param tg is an instance from TextGraphics.
   */
   public void draw(int col, int row, TextGraphics tg){
