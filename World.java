@@ -39,9 +39,7 @@ public class World {
 			// Score Keeping
 			long tEnd = System.currentTimeMillis();
 			long millis = tEnd - tStart;
-			putString(1, 2, screen, "Score: "+ millis / 100);
-			screen.doResizeIfNecessary();
-			screen.refresh();
+			putString(1, 2, screen, "Score: " + millis / 100);
 
 			// Resize World and Game
 			TerminalSize testsize = screen.getTerminalSize();
@@ -60,19 +58,22 @@ public class World {
 
 				if (key.getKeyType() == KeyType.ArrowUp && !pauseInput) {
 					dino.jump();
-					pauseInput = false;
+					pauseInput = true;
 					temptime = millis / 100;
+					tg.setCharacter(10,10,'c');
 				}
 			}
 
 			// Time check for jump
-			if (millis / 100 >= temptime + 15) pauseInput = true;
 
 			// Note: jump changes drawn position, has to keep drawing it at certain position for certain time.
 			//       block user input while jump in progress.
 
 			// Draws Dinosaur (gotta change location of this later to take into account jump time)
 			dino.draw(10,size.getRows()-3,tg);
+
+			screen.doResizeIfNecessary();
+			screen.refresh();
 		}
 		screen.stopScreen();
 	}
