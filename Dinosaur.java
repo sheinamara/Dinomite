@@ -131,7 +131,8 @@ public class Dinosaur{
     tg.setCharacter(col+5,row-2,'null');
     tg.setCharacter(col+6,row-2,'null');
     // neck ducked down
-    tg.setCharacter(col+3,row-2,'null')
+    tg.setCharacter(col+3,row-2,'null'); 
+    /*
     // head original
     tg.setCharacter(col,row-4,'[');
     tg.setCharacter(col+2,row-4,'-');
@@ -159,6 +160,6 @@ public class Dinosaur{
     // legs
     tg.setCharacter(col-3,row,'|');
     tg.setCharacter(col,row,'|');
-
+    */
   }
 }
