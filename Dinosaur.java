@@ -88,20 +88,20 @@ public class Dinosaur{
 // need to add some keystrokes thingys to make sure it unducks
 // do we need to add said if/else coding to the original draw??? no right
 
-  public void duck(){
+  public void duck(int col, int row, TextGraphics tg){
     // head DUCKED DOWN
     tg.setCharacter(col+4,row-2,'[');
     tg.setCharacter(col+5,row-2,'-');
     tg.setCharacter(col+6,row-2,']');
     // neck DUCKED DOWN
-    tg.setCharacter(col+3,row-2,'=')
+    tg.setCharacter(col+3,row-2,'=');
     // head original
-    tg.setCharacter(col,row-4,'null');
-    tg.setCharacter(col+2,row-4,'null');
-    tg.setCharacter(col+3,row-4,'null');
+    tg.setCharacter(col,row-4,null);
+    tg.setCharacter(col+2,row-4,null);
+    tg.setCharacter(col+3,row-4,null);
     // neck original
-    tg.setCharacter(col,row-3,'null');
-    tg.setCharacter(col+1,row-3,'null');
+    tg.setCharacter(col,row-3,null);
+    tg.setCharacter(col+1,row-3,null);
     // upper body
     tg.setCharacter(col-6,row-2,'\\');
     tg.setCharacter(col-5,row-2,'\\');
@@ -125,13 +125,14 @@ public class Dinosaur{
 
   }
 
-  public void unduck(){
+  public void unduck(int col, int row, TextGraphics tg){
     // head ducked down
-    tg.setCharacter(col+4,row-2,'null');
-    tg.setCharacter(col+5,row-2,'null');
-    tg.setCharacter(col+6,row-2,'null');
+    tg.setCharacter(col+4,row-2,null);
+    tg.setCharacter(col+5,row-2,null);
+    tg.setCharacter(col+6,row-2,null);
     // neck ducked down
-    tg.setCharacter(col+3,row-2,'null')
+    tg.setCharacter(col+3,row-2,null);
+    /*
     // head original
     tg.setCharacter(col,row-4,'[');
     tg.setCharacter(col+2,row-4,'-');
@@ -159,6 +160,8 @@ public class Dinosaur{
     // legs
     tg.setCharacter(col-3,row,'|');
     tg.setCharacter(col,row,'|');
-
+    */
   }
+
+  public void jump(){}
 }
