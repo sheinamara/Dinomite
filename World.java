@@ -25,6 +25,7 @@ public class World {
 		long temptime = 0;
 
 		Dinosaur dino = new Dinosaur(1,1);
+		Cactus cacto = new Cactus(3,8);
 		boolean pauseInput = false;
 
 		// Draws Floor

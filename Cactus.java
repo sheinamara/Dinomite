@@ -47,7 +47,7 @@ public class Cactus{
   /**
   * Draws a cactus that will vary in size based on the constructed cactus.
   * @param col is the "x-value" of the left character of the cactus's base in a standard coordinate system.
-  * @param row is the "y-value" of the right character of the cactus's legs in a standard coordinate system.
+  * @param row is the "y-value" of the left character of the cactus's legs in a standard coordinate system.
   * @param tg is an instance from TextGraphics.
   */
   public void draw(int col, int row, TextGraphics tg){
@@ -55,7 +55,7 @@ public class Cactus{
     int wide = this.getWidth();
     
     if (high == 3 && wide == 8){
-      tg.setCharacter(col-3,row-2,'\');
+      tg.setCharacter(col-3,row-2,'\\');
       tg.setCharacter(col-1,row-2,'|');
       tg.setCharacter(col,row-2,'|');
       tg.setCharacter(col+1,row-2,'|');
