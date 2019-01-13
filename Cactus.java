@@ -6,43 +6,17 @@ import com.googlecode.lanterna.graphics.*;
 import java.awt.Color;
 
 public class Cactus{
-  /**
-  * Represents how tall a cactus is.
-  * One unit is equivalent to one new line.
-  */
-  private int height;
 
-  /**
-  * Represents how wide a cactus is.
-  * One unit is equivalent to one space.
-  */
-  private int width;
+  public boolean drawn;
+  public int xcor;
+  public long temptime;
+  public int type;
+  private int timepass;
 
-  public Cactus(int type){
-    if (type == 1) {
-      height = 3;
-      width = 8;
-    }
-    if (type == 2) {
-      height = 2;
-      width = 6;
-    }
-  }
-
-  /**
-  * Gets the height of a cactus at any given time.
-  * @return the height of a cactus.
-  */
-  public int getHeight(){
-    return height;
-  }
-
-  /**
-  * Gets the width of a cactus at any given time.
-  * @return the width of a cactus.
-  */
-  public int getWidth(){
-    return width;
+  public Cactus(int type_){
+    type = type_;
+    drawn =  false;
+    timepass = 0;
   }
 
   /**
@@ -51,8 +25,19 @@ public class Cactus{
   * @param row is the "y-value" of the left character of the cactus's legs in a standard coordinate system.
   * @param tg is an instance from TextGraphics.
   */
+
+  public void spawn(int row, long millis, TextGraphics tg) {
+    if (millis >= temptime + (30 * timepass)) {
+        undraw(xcor,row,tg);
+        xcor -= 1;
+        draw(xcor,row,tg);
+        timepass += 1;
+    }
+    if (xcor == -5) drawn = false;
+  }
+
   public void draw(int col, int row, TextGraphics tg){
-    if (height == 3 && width == 8){
+    if (type == 1){
       tg.setCharacter(col-3,row-2,'\\');
       tg.setCharacter(col-1,row-2,'|');
       tg.setCharacter(col,row-2,'|');
@@ -71,7 +56,7 @@ public class Cactus{
       tg.setCharacter(col+1,row,'|');
     }
 
-    if (height == 2 && width == 6) {
+    if (type == 2) {
       tg.setCharacter(col-2,row-1,'|');
       tg.setCharacter(col-1,row-1,'_');
       tg.setCharacter(col,row-1,'|');
@@ -85,7 +70,7 @@ public class Cactus{
   }
 
   public void undraw(int col, int row, TextGraphics tg){
-    if (height == 3 && width == 8){
+    if (type == 1){
       tg.setCharacter(col-3,row-2,' ');
       tg.setCharacter(col-1,row-2,' ');
       tg.setCharacter(col,row-2,' ');
@@ -100,11 +85,11 @@ public class Cactus{
       tg.setCharacter(col+2,row-1,' ');
       tg.setCharacter(col+3,row-1,' ');
 
-      tg.setCharacter(col,row,' ');
-      tg.setCharacter(col+1,row,' ');
+      tg.setCharacter(col,row,'\u2581');
+      tg.setCharacter(col+1,row,'\u2581');
     }
 
-    if (height == 2 && width == 6) {
+    if (type == 2) {
       tg.setCharacter(col-2,row-1,' ');
       tg.setCharacter(col-1,row-1,' ');
       tg.setCharacter(col,row-1,' ');
@@ -112,8 +97,8 @@ public class Cactus{
       tg.setCharacter(col+2,row-1,' ');
       tg.setCharacter(col+3,row-1,' ');
 
-      tg.setCharacter(col,row,' ');
-      tg.setCharacter(col+1,row,' ');
+      tg.setCharacter(col,row,'\u2581');
+      tg.setCharacter(col+1,row,'\u2581');
     }
   }
 

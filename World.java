@@ -5,6 +5,8 @@ import com.googlecode.lanterna.screen.*;
 import com.googlecode.lanterna.graphics.*;
 import java.io.IOException;
 import java.awt.Color;
+import java.util.*;
+import java.io.*;
 
 
 public class World {
@@ -24,10 +26,24 @@ public class World {
 		long temptime = 0;
 		long tempend = 0;
 
+		// Dinosaur data
 		Dinosaur dino = new Dinosaur(1,1);
-		Cactus cacto = new Cactus(3,8);
 		boolean jumping = false;
 		boolean ducking = false;
+
+		// Cacti data
+		Cactus cacto1 = new Cactus(1);
+		Cactus cacto2 = new Cactus(2);
+		Cactus cacto3 = cacto1;
+		Cactus cacto4 = cacto2;
+		Object[] obstacles = new Object[4];
+		obstacles[0] = cacto1;
+		obstacles[1] = cacto2;
+		obstacles[2] = cacto3;
+		obstacles[3] = cacto4;
+
+		int num = (int)(Math.random() * 10000);
+		Random randgen = new Random(num);
 
 		// Draws Floor
 		TerminalSize size = screen.getTerminalSize();
@@ -46,6 +62,7 @@ public class World {
 			putString(1, 4, screen, "tempend: " + tempend);
 			putString(1, 5, screen, "jumping: " + jumping);
 			putString(1, 6, screen, "ducking: " + ducking);
+			putString(1, 7, screen, "random: " + num);
 
 			// Resize World and Game
 			TerminalSize testsize = screen.getTerminalSize();
@@ -58,7 +75,6 @@ public class World {
 			}
 
 			// User Input
-
 			KeyStroke key = screen.pollInput();
 			if (key != null) {
 				if (key.getKeyType() == KeyType.Escape) break;
@@ -78,6 +94,7 @@ public class World {
 				}
 			}
 
+			// Check motion of dinosaur
 			if (!jumping && !ducking) dino.draw(15,size.getRows()-3,tg);
 			else {
 				if (jumping) {
@@ -94,12 +111,18 @@ public class World {
 				}
 			}
 
+			int choice = Math.abs(randgen.nextInt() % 2);
 
+			
+			if (!cacto1.drawn) {
+				cacto1.drawn = true;
+				cacto1.temptime = millis;
+				cacto1.xcor = 70;
+			}
+			if (cacto1.drawn) {
+				cacto1.spawn(size.getRows()-3,millis,tg);
+			}
 
-			// Note: jump changes drawn position, has to keep drawing it at certain position for certain time.
-			//       block user input while jump in progress.
-
-			// Draws Dinosaur (gotta change location of this later to take into account jump time)
 
 			screen.doResizeIfNecessary();
 			screen.refresh();
