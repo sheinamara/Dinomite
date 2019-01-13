@@ -113,14 +113,15 @@ public class Dinosaur{
     tg.setCharacter(col-3,row,' ');
     tg.setCharacter(col,row,' ');
   }
-// NEED TO TEST
-// need to make it so it "unducks"
-// should we just make an unduck function??? (makes sense)
-// characters should be in the right positions
-// need to add some keystrokes thingys to make sure it unducks
-// do we need to add said if/else coding to the original draw??? no right
 
-  public void duck(int col, int row, TextGraphics tg){
+  public void duck(int col, int row, long millis, TextGraphics tg) {
+    duckhead(col,row,tg);
+    if (millis >= temptime + 800) {
+      unduckhead(col,row,tg);
+    }
+  }
+
+  public void duckhead(int col, int row, TextGraphics tg){
     // head DUCKED DOWN
     tg.setCharacter(col+4,row-2,'[');
     tg.setCharacter(col+5,row-2,'-');
@@ -134,37 +135,15 @@ public class Dinosaur{
     // neck original
     tg.setCharacter(col,row-3,' ');
     tg.setCharacter(col+1,row-3,' ');
-    // upper body
-    tg.setCharacter(col-6,row-2,'\\');
-    tg.setCharacter(col-5,row-2,'\\');
-    tg.setCharacter(col-4,row-2,'[');
-    tg.setCharacter(col-3,row-2,'-');
-    tg.setCharacter(col-2,row-2,'-');
-    tg.setCharacter(col-1,row-2,'-');
-    tg.setCharacter(col,row-2,'-');
-    tg.setCharacter(col+1,row-2,']');
-    tg.setCharacter(col+2,row-2,'=');
-    // lower body
-    tg.setCharacter(col-4,row-1,'[');
-    tg.setCharacter(col-3,row-1,'-');
-    tg.setCharacter(col-2,row-1,'-');
-    tg.setCharacter(col-1,row-1,'-');
-    tg.setCharacter(col,row-1,'-');
-    tg.setCharacter(col+1,row-1,']');
-    // legs
-    tg.setCharacter(col-3,row,'|');
-    tg.setCharacter(col,row,'|');
-
   }
 
-  public void unduck(int col, int row, TextGraphics tg){
+  public void unduckhead(int col, int row, TextGraphics tg){
     // head ducked down
     tg.setCharacter(col+4,row-2,' ');
     tg.setCharacter(col+5,row-2,' ');
     tg.setCharacter(col+6,row-2,' ');
     // neck ducked down
     tg.setCharacter(col+3,row-2,' ');
-    /*
     // head original
     tg.setCharacter(col,row-4,'[');
     tg.setCharacter(col+2,row-4,'-');
@@ -173,26 +152,6 @@ public class Dinosaur{
     tg.setCharacter(col,row-3,'/');
     tg.setCharacter(col+1,row-3,'/');
     // upper body
-    tg.setCharacter(col-6,row-2,'\\');
-    tg.setCharacter(col-5,row-2,'\\');
-    tg.setCharacter(col-4,row-2,'[');
-    tg.setCharacter(col-3,row-2,'-');
-    tg.setCharacter(col-2,row-2,'-');
-    tg.setCharacter(col-1,row-2,'-');
-    tg.setCharacter(col,row-2,'-');
-    tg.setCharacter(col+1,row-2,']');
-    tg.setCharacter(col+2,row-2,'=');
-    // lower body
-    tg.setCharacter(col-4,row-1,'[');
-    tg.setCharacter(col-3,row-1,'-');
-    tg.setCharacter(col-2,row-1,'-');
-    tg.setCharacter(col-1,row-1,'-');
-    tg.setCharacter(col,row-1,'-');
-    tg.setCharacter(col+1,row-1,']');
-    // legs
-    tg.setCharacter(col-3,row,'|');
-    tg.setCharacter(col,row,'|');
-    */
   }
 
   public void jump(int col, int row, long millis, TextGraphics tg) {

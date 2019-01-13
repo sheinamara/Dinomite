@@ -18,14 +18,15 @@ public class Cactus{
   */
   private int width;
 
-  /**
-  * Initializes a cactus with the specified height and width. 
-  * @param height_ represents how tall a cactus is.
-  * @param width_ represents how wide a cactus is.
-  */
-  public Cactus(int height_, int width_){
-    height = height_;
-    width = width_;
+  public Cactus(int type){
+    if (type == 1) {
+      height = 3;
+      width = 8;
+    }
+    if (type == 2) {
+      height = 2;
+      width = 6;
+    }
   }
 
   /**
@@ -51,10 +52,7 @@ public class Cactus{
   * @param tg is an instance from TextGraphics.
   */
   public void draw(int col, int row, TextGraphics tg){
-    int high = this.getHeight();
-    int wide = this.getWidth();
-    
-    if (high == 3 && wide == 8){
+    if (height == 3 && width == 8){
       tg.setCharacter(col-3,row-2,'\\');
       tg.setCharacter(col-1,row-2,'|');
       tg.setCharacter(col,row-2,'|');
@@ -72,9 +70,8 @@ public class Cactus{
       tg.setCharacter(col,row,'|');
       tg.setCharacter(col+1,row,'|');
     }
-    
-    //if (high == 2 && wide == 6)
-    else{
+
+    if (height == 2 && width == 6) {
       tg.setCharacter(col-2,row-1,'|');
       tg.setCharacter(col-1,row-1,'_');
       tg.setCharacter(col,row-1,'|');
@@ -84,6 +81,39 @@ public class Cactus{
 
       tg.setCharacter(col,row,'|');
       tg.setCharacter(col+1,row,'|');
+    }
+  }
+
+  public void undraw(int col, int row, TextGraphics tg){
+    if (height == 3 && width == 8){
+      tg.setCharacter(col-3,row-2,' ');
+      tg.setCharacter(col-1,row-2,' ');
+      tg.setCharacter(col,row-2,' ');
+      tg.setCharacter(col+1,row-2,' ');
+      tg.setCharacter(col+2,row-2,' ');
+      tg.setCharacter(col+4,row-2,' ');
+
+      tg.setCharacter(col-2,row-1,' ');
+      tg.setCharacter(col-1,row-1,' ');
+      tg.setCharacter(col,row-1,' ');
+      tg.setCharacter(col+1,row-1,' ');
+      tg.setCharacter(col+2,row-1,' ');
+      tg.setCharacter(col+3,row-1,' ');
+
+      tg.setCharacter(col,row,' ');
+      tg.setCharacter(col+1,row,' ');
+    }
+
+    if (height == 2 && width == 6) {
+      tg.setCharacter(col-2,row-1,' ');
+      tg.setCharacter(col-1,row-1,' ');
+      tg.setCharacter(col,row-1,' ');
+      tg.setCharacter(col+1,row-1,' ');
+      tg.setCharacter(col+2,row-1,' ');
+      tg.setCharacter(col+3,row-1,' ');
+
+      tg.setCharacter(col,row,' ');
+      tg.setCharacter(col+1,row,' ');
     }
   }
 

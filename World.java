@@ -27,6 +27,7 @@ public class World {
 		Dinosaur dino = new Dinosaur(1,1);
 		Cactus cacto = new Cactus(3,8);
 		boolean jumping = false;
+		boolean ducking = false;
 
 		// Draws Floor
 		TerminalSize size = screen.getTerminalSize();
@@ -44,6 +45,7 @@ public class World {
 			putString(1, 3, screen, "temptime: " + temptime);
 			putString(1, 4, screen, "tempend: " + tempend);
 			putString(1, 5, screen, "jumping: " + jumping);
+			putString(1, 6, screen, "ducking: " + ducking);
 
 			// Resize World and Game
 			TerminalSize testsize = screen.getTerminalSize();
@@ -56,27 +58,44 @@ public class World {
 			}
 
 			// User Input
+
 			KeyStroke key = screen.pollInput();
 			if (key != null) {
 				if (key.getKeyType() == KeyType.Escape) break;
 
-				if ((key.getKeyType() == KeyType.ArrowUp) && !jumping) {
+				if ((key.getKeyType() == KeyType.ArrowUp) && !jumping && !ducking) {
 					jumping = true;
+					temptime = millis;
+					tempend = temptime + 810;
+					dino.temptime = temptime;
+				}
+
+				if ((key.getKeyType() == KeyType.ArrowDown) && !jumping && !ducking) {
+					ducking = true;
 					temptime = millis;
 					tempend = temptime + 810;
 					dino.temptime = temptime;
 				}
 			}
 
-			if (!jumping) dino.draw(10,size.getRows()-3,tg);
+			if (!jumping && !ducking) dino.draw(15,size.getRows()-3,tg);
 			else {
-				dino.jump(10,size.getRows()-3,millis,tg);
-				if (millis >= tempend) {
-					jumping = false;
+				if (jumping) {
+					dino.jump(15,size.getRows()-3,millis,tg);
+					if (millis >= tempend) {
+						jumping = false;
+					}
+				}
+				if (ducking) {
+					dino.duck(15,size.getRows()-3,millis,tg);
+					if (millis >= tempend) {
+						ducking = false;
+					}
 				}
 			}
 
-			
+
+
 			// Note: jump changes drawn position, has to keep drawing it at certain position for certain time.
 			//       block user input while jump in progress.
 
