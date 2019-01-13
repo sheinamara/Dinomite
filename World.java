@@ -22,10 +22,11 @@ public class World {
 
 		long tStart = System.currentTimeMillis();
 		long temptime = 0;
+		long tempend = 0;
 
 		Dinosaur dino = new Dinosaur(1,1);
 		Cactus cacto = new Cactus(3,8);
-		boolean pauseInput = false;
+		boolean jumping = false;
 
 		// Draws Floor
 		TerminalSize size = screen.getTerminalSize();
@@ -40,6 +41,9 @@ public class World {
 			long tEnd = System.currentTimeMillis();
 			long millis = tEnd - tStart;
 			putString(1, 2, screen, "Score: " + millis);
+			putString(1, 3, screen, "temptime: " + temptime);
+			putString(1, 4, screen, "tempend: " + tempend);
+			putString(1, 5, screen, "jumping: " + jumping);
 
 			// Resize World and Game
 			TerminalSize testsize = screen.getTerminalSize();
@@ -56,18 +60,19 @@ public class World {
 			if (key != null) {
 				if (key.getKeyType() == KeyType.Escape) break;
 
-				if ((key.getKeyType() == KeyType.ArrowUp) && !pauseInput) {
+				if ((key.getKeyType() == KeyType.ArrowUp) && !jumping) {
 					//dino.jump();
-					pauseInput = true;
+					jumping = true;
 					temptime = millis;
+					tempend = temptime + 1000;
 					dino.undraw(10,size.getRows()-3,tg);
 				}
 			}
 
-			if (temptime + 1500 == millis) pauseInput = false;
-			if (pauseInput == false) dino.draw(10,size.getRows()-3,tg);
-
-			
+			if (!jumping) dino.draw(10,size.getRows()-3,tg);
+			else {
+				if (millis >= tempend) jumping = false;
+			}
 			// Note: jump changes drawn position, has to keep drawing it at certain position for certain time.
 			//       block user input while jump in progress.
 
