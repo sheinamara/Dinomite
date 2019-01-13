@@ -40,7 +40,7 @@ public class World {
 			// Score Keeping
 			long tEnd = System.currentTimeMillis();
 			long millis = tEnd - tStart;
-			putString(1, 2, screen, "Score: " + millis);
+			putString(1, 2, screen, "Score: " + millis / 100);
 			putString(1, 3, screen, "temptime: " + temptime);
 			putString(1, 4, screen, "tempend: " + tempend);
 			putString(1, 5, screen, "jumping: " + jumping);
@@ -63,7 +63,7 @@ public class World {
 				if ((key.getKeyType() == KeyType.ArrowUp) && !jumping) {
 					jumping = true;
 					temptime = millis;
-					tempend = temptime + 1000;
+					tempend = temptime + 810;
 					dino.temptime = temptime;
 				}
 			}
@@ -75,6 +75,8 @@ public class World {
 					jumping = false;
 				}
 			}
+
+			
 			// Note: jump changes drawn position, has to keep drawing it at certain position for certain time.
 			//       block user input while jump in progress.
 
