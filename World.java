@@ -61,17 +61,19 @@ public class World {
 				if (key.getKeyType() == KeyType.Escape) break;
 
 				if ((key.getKeyType() == KeyType.ArrowUp) && !jumping) {
-					//dino.jump();
 					jumping = true;
 					temptime = millis;
 					tempend = temptime + 1000;
-					dino.undraw(10,size.getRows()-3,tg);
+					dino.temptime = temptime;
 				}
 			}
 
 			if (!jumping) dino.draw(10,size.getRows()-3,tg);
 			else {
-				if (millis >= tempend) jumping = false;
+				dino.jump(10,size.getRows()-3,millis,tg);
+				if (millis >= tempend) {
+					jumping = false;
+				}
 			}
 			// Note: jump changes drawn position, has to keep drawing it at certain position for certain time.
 			//       block user input while jump in progress.

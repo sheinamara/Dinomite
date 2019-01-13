@@ -19,6 +19,8 @@ public class Dinosaur{
   */
   private double speed;
 
+  public long temptime;
+
   /**
   * Creates a dinosaur and intializes its health and speed.
   * @param health_ is a dinosaur's health.
@@ -27,6 +29,7 @@ public class Dinosaur{
   public Dinosaur(int health_, double speed_){
     health = health_;
     speed = speed_;
+
   }
 
   /**
@@ -192,6 +195,15 @@ public class Dinosaur{
     */
   }
 
-
-  public void jump(long temptime, long current,TextGraphics tg) {}
+  public void jump(int col, int row, long millis, TextGraphics tg) {
+    
+    if (millis >= temptime + 500) {
+      undraw(col,row,tg);
+      draw(col,row-5,tg);
+    }
+    if (millis >= temptime + 1000) {
+      undraw(col,row-5,tg);
+      draw(col,row,tg);
+    }
+  }
 }
