@@ -196,7 +196,6 @@ public class Dinosaur{
   }
 
   public void jump(int col, int row, long millis, TextGraphics tg) {
-    
     if (millis >= temptime + 500) {
       undraw(col,row,tg);
       draw(col,row-5,tg);
