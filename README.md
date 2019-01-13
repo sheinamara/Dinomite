@@ -21,4 +21,6 @@ Amara's Development Log:
 1/7: Focusing on Dinosaur.java. Trying to draw the dinosaur via ASCII.
 
 1/8: Successfully made the drawing function in the Dinosaur class. Dinosaur appears on terminal screen! Made a ducking function that needs to be tested and an unducking function that may or may not come into handy.
+
+1/10: Made Cactus class and almost done with pterodactyl. 
  
