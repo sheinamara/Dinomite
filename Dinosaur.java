@@ -91,10 +91,10 @@ public class Dinosaur{
 
   /**
   * Makes the dinosaur actually duck based on timing (0.8 second).
-  * @param col is a variable used for the duckhead method.
-  * @param row is a variable used for the duckhead method.
+  * @param col is the "x-value" of the left character of the dinosaur head in a standard coordinate system.
+  * @param row is the "y-value" of the right leg of the dinosaur's legs in a standard coordinate system.
   * @param millis is a time variable.
-  * @param tg is a variable used for the duckhead method.
+  * @param tg is an instance from TextGraphics.
   */
   public void duck(int col, int row, long millis, TextGraphics tg) {
     duckhead(col,row,tg);
@@ -150,10 +150,10 @@ public class Dinosaur{
 
   /**
   * Make the dinosaur actually jump based on time (0.9 second).
-  * @param col is a variable used for the duckhead method.
-  * @param row is a variable used for the duckhead method.
+  * @param col is the "x-value" of the left character of the dinosaur head in a standard coordinate system.
+  * @param row is the "y-value" of the right leg of the dinosaur's legs in a standard coordinate system.
   * @param millis is a time variable.
-  * @param tg is a variable used for the duckhead method.
+  * @param tg is an instance from TextGraphics.
   */
   public void jump(int col, int row, long millis, TextGraphics tg) {
     if (millis >= temptime + 100 && millis <= temptime + 120) {
