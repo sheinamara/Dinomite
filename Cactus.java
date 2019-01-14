@@ -6,11 +6,10 @@ import com.googlecode.lanterna.graphics.*;
 import java.awt.Color;
 
 public class Cactus{
-
   public boolean drawn;
   public int xcor;
   public long temptime;
-  public int type;
+  private int type;
   private int timepass;
 
   public Cactus(int type_){
@@ -33,37 +32,48 @@ public class Cactus{
         draw(xcor,row,tg);
         timepass += 1;
     }
-    if (xcor == -5) drawn = false;
+    if (xcor == 3) {
+      drawn = false;
+      undraw(xcor,row,tg);
+    }
   }
 
 
-  public void draw(int col, int row, TextGraphics tg){
-    if (type == 1)
-      tg.setCharacter(col-3,row-2,'\\');
-      tg.setCharacter(col-1,row-2,'|');
-      tg.setCharacter(col,row-2,'|');
-      tg.setCharacter(col+1,row-2,'|');
-      tg.setCharacter(col+2,row-2,'|');
-      tg.setCharacter(col+4,row-2,'/');
+  private void placeCharacter(int col, int row, char character, TextGraphics tg) {
+    if (tg.getCharacter(col,row).getCharacter() != ' ') {
+    }
+    else {
+      tg.setCharacter(col,row,character);
+    }
+  }
 
-      tg.setCharacter(col-2,row-1,'|');
-      tg.setCharacter(col-1,row-1,'_');
-      tg.setCharacter(col,row-1,'|');
-      tg.setCharacter(col+1,row-1,'|');
-      tg.setCharacter(col+2,row-1,'_');
-      tg.setCharacter(col+3,row-1,'|');
+  public void draw(int col, int row, TextGraphics tg) {
+    if (type == 1) {
+      placeCharacter(col-3,row-2,'\\',tg);
+      placeCharacter(col-1,row-2,'|',tg);
+      placeCharacter(col,row-2,'|',tg);
+      placeCharacter(col+1,row-2,'|',tg);
+      placeCharacter(col+2,row-2,'|',tg);
+      placeCharacter(col+4,row-2,'/',tg);
+
+      placeCharacter(col-2,row-1,'|',tg);
+      placeCharacter(col-1,row-1,'_',tg);
+      placeCharacter(col,row-1,'|',tg);
+      placeCharacter(col+1,row-1,'|',tg);
+      placeCharacter(col+2,row-1,'_',tg);
+      placeCharacter(col+3,row-1,'|',tg);
 
       tg.setCharacter(col,row,'|');
       tg.setCharacter(col+1,row,'|');
     }
 
     if (type == 2) {
-      tg.setCharacter(col-2,row-1,'|');
-      tg.setCharacter(col-1,row-1,'_');
-      tg.setCharacter(col,row-1,'|');
-      tg.setCharacter(col+1,row-1,'|');
-      tg.setCharacter(col+2,row-1,'_');
-      tg.setCharacter(col+3,row-1,'|');
+      placeCharacter(col-2,row-1,'|',tg);
+      placeCharacter(col-1,row-1,'_',tg);
+      placeCharacter(col,row-1,'|',tg);
+      placeCharacter(col+1,row-1,'|',tg);
+      placeCharacter(col+2,row-1,'_',tg);
+      placeCharacter(col+3,row-1,'|',tg);
 
       tg.setCharacter(col,row,'|');
       tg.setCharacter(col+1,row,'|');

@@ -66,11 +66,12 @@ public class World {
 			long tEnd = System.currentTimeMillis();
 			long millis = tEnd - tStart;
 			putString(1, 2, screen, "Score: " + millis / 100);
+			/*
 			putString(1, 3, screen, "temptime: " + temptime);
 			putString(1, 4, screen, "tempend: " + tempend);
 			putString(1, 5, screen, "jumping: " + jumping);
 			putString(1, 6, screen, "ducking: " + ducking);
-			putString(1, 7, screen, "char: " + tg.getCharacter(20,20));
+			*/
 
 			// Resize World and Game
 			TerminalSize testsize = screen.getTerminalSize();
@@ -124,7 +125,7 @@ public class World {
 			if (millis > delay && !drawthis.drawn) {
 				drawthis.drawn = true;
 				drawthis.temptime = millis;
-				drawthis.xcor = size.getColumns();
+				drawthis.xcor = size.getColumns()-5;
 				delay = millis + 3500;
 			}
 			if (drawthis.drawn) {
