@@ -6,11 +6,17 @@ import com.googlecode.lanterna.graphics.*;
 import java.awt.Color;
 
 public class Dinosaur{
+  /**
+  * The initial time input that is used as reference when timing the distance it travels or what happens to the obstacle.
+  */
   public long temptime;
 
+  /**
+  * The default constructor for a dinosaur.
+  */
   public Dinosaur(){
   }
-  
+
   /**
   * Draws a default dinosaur that is five units tall and ten units wide.
   * @param col is the "x-value" of the left character of the dinosaur head in a standard coordinate system.
@@ -47,6 +53,12 @@ public class Dinosaur{
     tg.setCharacter(col,row,'|');
   }
 
+  /**
+  * Undraws a default dinosaur that is five units tall and ten units wide.
+  * @param col is the "x-value" of the left character of the dinosaur head in a standard coordinate system.
+  * @param row is the "y-value" of the right leg of the dinosaur's legs in a standard coordinate system.
+  * @param tg is an instance from TextGraphics.
+  */
   public void undraw(int col, int row, TextGraphics tg){
     // head
     tg.setCharacter(col,row-4,' ');
@@ -77,6 +89,13 @@ public class Dinosaur{
     tg.setCharacter(col,row,' ');
   }
 
+  /**
+  * Makes the dinosaur actually duck based on timing (0.8 second).
+  * @param col is a variable used for the duckhead method.
+  * @param row is a variable used for the duckhead method.
+  * @param millis is a time variable.
+  * @param tg is a variable used for the duckhead method.
+  */
   public void duck(int col, int row, long millis, TextGraphics tg) {
     duckhead(col,row,tg);
     if (millis >= temptime + 800) {
@@ -84,6 +103,12 @@ public class Dinosaur{
     }
   }
 
+  /**
+  * The drawing of a ducked dinosaur.
+  * @param col is the "x-value" of the left character of the dinosaur head in a standard coordinate system.
+  * @param row is the "y-value" of the right leg of the dinosaur's legs in a standard coordinate system.
+  * @param tg is an instance from TextGraphics.
+  */
   public void duckhead(int col, int row, TextGraphics tg){
     // head DUCKED DOWN
     tg.setCharacter(col+4,row-2,'[');
@@ -100,6 +125,12 @@ public class Dinosaur{
     tg.setCharacter(col+1,row-3,' ');
   }
 
+  /**
+  * The undraw of a ducked dinosaur.
+  * @param col is the "x-value" of the left character of the dinosaur head in a standard coordinate system.
+  * @param row is the "y-value" of the right leg of the dinosaur's legs in a standard coordinate system.
+  * @param tg is an instance from TextGraphics.
+  */
   public void unduckhead(int col, int row, TextGraphics tg){
     // head ducked down
     tg.setCharacter(col+4,row-2,' ');
@@ -117,6 +148,13 @@ public class Dinosaur{
     // upper body
   }
 
+  /**
+  * Make the dinosaur actually jump based on time (0.9 second).
+  * @param col is a variable used for the duckhead method.
+  * @param row is a variable used for the duckhead method.
+  * @param millis is a time variable.
+  * @param tg is a variable used for the duckhead method.
+  */
   public void jump(int col, int row, long millis, TextGraphics tg) {
     if (millis >= temptime + 100 && millis <= temptime + 120) {
       undraw(col,row,tg);
