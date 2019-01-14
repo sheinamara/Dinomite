@@ -18,18 +18,32 @@ We used simple **ASCII** characters to recreate the figures needed. Because this
 6. Survive!
 ## Jeff's Development Log
 1/3: Review terminal manipulation and make changes to fit our game.
+
 1/6: Made class World implementing Lanterna 3.0. Created basic game interface, edited Dinosaur class, and implemented into World.
+
 1/7: Edited World class's interaction with Dinosaur.
-1/8: Edited user input timing in World class.
-1/9: Edits made in World class for user input.
-1/10: Made huge progress. Created working user input pause and dinosaur drawing and undrawing. Crucial for game. Also edited Cactus class and implemented to World.
+
+1/8: Started creating functioning of user input in World class.
+
+1/9: Edited user input in World class.
+
+1/10: HUGE PROGRESS: Finished user input and dinosaur drawing and undrawing. Edited Cactus class and implemented into World.
+
+1/13: Finished functioning of Dinosaur, Cactus, Pterodactyl, and implemented all into World. Created start and end menus for presentability.
+
 ## Amara's Development Log
 1/3: Created three classes.
+
 1/4: Added javadoc to three classes and made the variables for each class. Began working on Dinosaur.java and completed the constructor and get methods.
+
 1/7: Focusing on Dinosaur.java. Trying to draw the dinosaur via ASCII.
+
 1/8: Successfully made the drawing method in the Dinosaur class. Dinosaur appears on terminal screen! Made a ducking method that needs to be tested and an unducking method that may or may not come into handy.
+
 1/9: Started making Cactus class.
+
 1/10: Finished drawing method for Pterodactyl. 
+
 1/13: Adding documentation for all methods and making this README look pretty :))
  
 
