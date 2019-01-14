@@ -6,6 +6,7 @@ import com.googlecode.lanterna.graphics.*;
 import java.awt.Color;
 
 public class Pterodactyl{
+  public boolean gamestatus;
   public boolean drawn;
   public int xcor;
   public long temptime;
@@ -19,6 +20,7 @@ public class Pterodactyl{
   public Pterodactyl(){
     drawn =  false;
     timepass = 0;
+    gamestatus = true;
   }
 
   public void spawn(int row, long millis, TextGraphics tg) {
@@ -36,7 +38,7 @@ public class Pterodactyl{
 
   private void placeCharacter(int col, int row, char character, TextGraphics tg) {
     if (tg.getCharacter(col,row).getCharacter() != ' ') {
-      System.exit(0);
+      gamestatus = false;
     }
     else {
       tg.setCharacter(col,row,character);

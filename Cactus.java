@@ -6,6 +6,7 @@ import com.googlecode.lanterna.graphics.*;
 import java.awt.Color;
 
 public class Cactus{
+  public boolean gamestatus;
   public boolean drawn;
   public int xcor;
   public long temptime;
@@ -16,6 +17,7 @@ public class Cactus{
     type = type_;
     drawn =  false;
     timepass = 0;
+    gamestatus = true;
   }
 
   /**
@@ -41,7 +43,7 @@ public class Cactus{
 
   private void placeCharacter(int col, int row, char character, TextGraphics tg) {
     if (tg.getCharacter(col,row).getCharacter() != ' ') {
-      System.exit(0);
+      gamestatus = false;
     }
     else {
       tg.setCharacter(col,row,character);

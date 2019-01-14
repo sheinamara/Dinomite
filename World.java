@@ -18,8 +18,9 @@ public class World {
 	}
 
 	public static void main(String[] args) throws IOException {
-		boolean alive = true;
+		int gameinterface = 2;
 
+		// Display
 		Screen screen = new DefaultTerminalFactory().createScreen();
 		screen.startScreen();
 
@@ -29,7 +30,7 @@ public class World {
 		long tempend = 0;
 
 		// Dinosaur data
-		Dinosaur dino = new Dinosaur(1,1);
+		Dinosaur dino = new Dinosaur();
 		boolean jumping = false;
 		boolean ducking = false;
 
@@ -69,7 +70,7 @@ public class World {
 		tg.drawLine(0,size.getRows()-2,size.getColumns()-1,size.getRows()-2,'\u2571');
 		tg.drawLine(0,size.getRows()-3,size.getColumns()-1,size.getRows()-3,'\u2581');
 
-		while (alive) {
+		while (gameinterface == 2) {
 
 			// Score Keeping
 			long tEnd = System.currentTimeMillis();
@@ -130,41 +131,39 @@ public class World {
 			}
 
 			// Obstacle spawning
-			int choice1 = Math.abs(randgen.nextInt() % 2);
+			int choice1 = Math.abs(randgen.nextInt() % 3);
 			int choice2 = Math.abs(randgen.nextInt() % 6);
 			int choice3 = Math.abs(randgen.nextInt() % 3);
-			if (choice1 == 0) {
+			if (choice1 > 0) {
 				Cactus drawthis = cacti[choice2];
 				if (millis > delay && !drawthis.drawn) {
 					drawthis.drawn = true;
 					drawthis.temptime = millis;
 					drawthis.xcor = size.getColumns()-5;
-					delay = millis + 3100;
+					delay = millis + 3000;
 				}
 				if (drawthis.drawn) {
 					drawthis.spawn(size.getRows()-3,millis,tg);
+					if (!drawthis.gamestatus) System.exit(0);
 				}
 			}
-			if (choice1 == 1) {
+			if (choice1 == 0) {
 				Pterodactyl drawthis = flyers[choice3];
 				if (millis > delay && !drawthis.drawn) {
 					drawthis.drawn = true;
 					drawthis.temptime = millis;
 					drawthis.xcor = size.getColumns()-15;
-					delay = millis + 3100;
+					delay = millis + 3000;
 				}
 				if (drawthis.drawn) {
 					drawthis.spawn(size.getRows()-6,millis,tg);
+					if (!drawthis.gamestatus) System.exit(0);
 				}
 			}
-
-
-
 
 			screen.doResizeIfNecessary();
 			screen.refresh();
 		}
 		screen.stopScreen();
 	}
-
 }
