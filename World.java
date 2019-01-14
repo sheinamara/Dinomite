@@ -33,21 +33,30 @@ public class World {
 		boolean jumping = false;
 		boolean ducking = false;
 
-		// Cacti data
 		long delay = 2000;
+		// Cacti data
 		Cactus cacto1 = new Cactus(1);
 		Cactus cacto2 = new Cactus(2);
 		Cactus cacto3 = new Cactus(1);
 		Cactus cacto4 = new Cactus(2);
 		Cactus cacto5 = new Cactus(1);
 		Cactus cacto6 = new Cactus(2);
-		Cactus[] obstacles = new Cactus[6];
-		obstacles[0] = cacto1;
-		obstacles[1] = cacto2;
-		obstacles[2] = cacto3;
-		obstacles[3] = cacto4;
-		obstacles[4] = cacto5;
-		obstacles[5] = cacto6;
+		Cactus[] cacti = new Cactus[6];
+		cacti[0] = cacto1;
+		cacti[1] = cacto2;
+		cacti[2] = cacto3;
+		cacti[3] = cacto4;
+		cacti[4] = cacto5;
+		cacti[5] = cacto6;
+
+		// Pterodactyls data
+		Pterodactyl flyboi1 = new Pterodactyl();
+		Pterodactyl flyboi2 = new Pterodactyl();
+		Pterodactyl flyboi3 = new Pterodactyl();
+		Pterodactyl[] flyers = new Pterodactyl[3];
+		flyers[0] = flyboi1;
+		flyers[1] = flyboi2;
+		flyers[2] = flyboi3;
 
 		// Random cacti
 		int num = (int)(Math.random() * 10000);
@@ -120,17 +129,36 @@ public class World {
 				}
 			}
 
-			int choice = Math.abs(randgen.nextInt() % 6);
-			Cactus drawthis = obstacles[choice];
-			if (millis > delay && !drawthis.drawn) {
-				drawthis.drawn = true;
-				drawthis.temptime = millis;
-				drawthis.xcor = size.getColumns()-5;
-				delay = millis + 3500;
+			// Obstacle spawning
+			int choice1 = Math.abs(randgen.nextInt() % 2);
+			int choice2 = Math.abs(randgen.nextInt() % 6);
+			int choice3 = Math.abs(randgen.nextInt() % 3);
+			if (choice1 == 0) {
+				Cactus drawthis = cacti[choice2];
+				if (millis > delay && !drawthis.drawn) {
+					drawthis.drawn = true;
+					drawthis.temptime = millis;
+					drawthis.xcor = size.getColumns()-5;
+					delay = millis + 3100;
+				}
+				if (drawthis.drawn) {
+					drawthis.spawn(size.getRows()-3,millis,tg);
+				}
 			}
-			if (drawthis.drawn) {
-				drawthis.spawn(size.getRows()-3,millis,tg);
+			if (choice1 == 1) {
+				Pterodactyl drawthis = flyers[choice3];
+				if (millis > delay && !drawthis.drawn) {
+					drawthis.drawn = true;
+					drawthis.temptime = millis;
+					drawthis.xcor = size.getColumns()-15;
+					delay = millis + 3100;
+				}
+				if (drawthis.drawn) {
+					drawthis.spawn(size.getRows()-6,millis,tg);
+				}
 			}
+
+
 
 
 			screen.doResizeIfNecessary();

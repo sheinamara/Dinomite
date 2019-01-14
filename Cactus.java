@@ -41,7 +41,7 @@ public class Cactus{
 
   private void placeCharacter(int col, int row, char character, TextGraphics tg) {
     if (tg.getCharacter(col,row).getCharacter() != ' ') {
-      System.out(0);
+      System.exit(0);
     }
     else {
       tg.setCharacter(col,row,character);
@@ -57,12 +57,12 @@ public class Cactus{
       placeCharacter(col+2,row-2,'|',tg);
       placeCharacter(col+4,row-2,'/',tg);
 
-      placeCharacter(col-2,row-1,'|',tg);
-      placeCharacter(col-1,row-1,'_',tg);
-      placeCharacter(col,row-1,'|',tg);
-      placeCharacter(col+1,row-1,'|',tg);
-      placeCharacter(col+2,row-1,'_',tg);
-      placeCharacter(col+3,row-1,'|',tg);
+      tg.setCharacter(col-2,row-1,'|');
+      tg.setCharacter(col-1,row-1,'_');
+      tg.setCharacter(col,row-1,'|');
+      tg.setCharacter(col+1,row-1,'|');
+      tg.setCharacter(col+2,row-1,'_');
+      tg.setCharacter(col+3,row-1,'|');
 
       tg.setCharacter(col,row,'|');
       tg.setCharacter(col+1,row,'|');
