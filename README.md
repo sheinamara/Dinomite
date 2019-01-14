@@ -34,17 +34,17 @@ We used simple **ASCII** characters to recreate the figures needed. Because this
 ## Amara's Development Log
 1/3: Created three classes.
 
-1/4: Added javadoc to three classes and made the variables for each class. Began working on Dinosaur.java and completed the constructor and get methods.
+1/4: Added javadoc to three classes and made the variables for each class. Began working on Dinosaur class and completed the constructor and get methods for all. 
 
-1/7: Focusing on Dinosaur.java. Trying to draw the dinosaur via ASCII.
+1/7: Focusing on Dinosaur class before trying other classes. Trying to draw the dinosaur via ASCII.
 
 1/8: Successfully made the drawing method in the Dinosaur class. Dinosaur appears on terminal screen! Made a ducking method that needs to be tested and an unducking method that may or may not come into handy.
 
-1/9: Started making Cactus class.
+1/9: Started making Cactus class. Figured out ASCII drawing for Cactus and Pterodactyl.
 
-1/10: Finished drawing method for Pterodactyl. 
+1/10: Finished Cactus class. Finished drawing method for Pterodactyl. 
 
-1/13: Adding documentation for all methods and making this README look pretty :))
+1/13: Adding documentation for all methods and making this README look pretty :)) Finished javadoc for Dinosaur, Cactus, and Pterodactyl classes.
  
 
 
