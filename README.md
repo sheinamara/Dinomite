@@ -12,6 +12,12 @@ Jeff's Development Log:
 
 1/8: Edited user input timing in World class.
 
+1/9: Continued working on user input timing in World class.
+
+1/10: Perfected user input timing and started behavior of Dinosaur in terminal.
+
+1/13: Perfected Dinosaur behavior in terminal and added cactus and pterodactyl movement. Finished game essentials.
+
 Amara's Development Log:
 
 1/3: Created three classes.
