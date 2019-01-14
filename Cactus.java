@@ -36,8 +36,9 @@ public class Cactus{
     if (xcor == -5) drawn = false;
   }
 
+
   public void draw(int col, int row, TextGraphics tg){
-    if (type == 1){
+    if (type == 1)
       tg.setCharacter(col-3,row-2,'\\');
       tg.setCharacter(col-1,row-2,'|');
       tg.setCharacter(col,row-2,'|');

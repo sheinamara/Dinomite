@@ -18,10 +18,12 @@ public class World {
 	}
 
 	public static void main(String[] args) throws IOException {
+		boolean alive = true;
 
 		Screen screen = new DefaultTerminalFactory().createScreen();
 		screen.startScreen();
 
+		// Clock
 		long tStart = System.currentTimeMillis();
 		long temptime = 0;
 		long tempend = 0;
@@ -47,6 +49,7 @@ public class World {
 		obstacles[4] = cacto5;
 		obstacles[5] = cacto6;
 
+		// Random cacti
 		int num = (int)(Math.random() * 10000);
 		Random randgen = new Random(num);
 
@@ -57,7 +60,7 @@ public class World {
 		tg.drawLine(0,size.getRows()-2,size.getColumns()-1,size.getRows()-2,'\u2571');
 		tg.drawLine(0,size.getRows()-3,size.getColumns()-1,size.getRows()-3,'\u2581');
 
-		while (true) {
+		while (alive) {
 
 			// Score Keeping
 			long tEnd = System.currentTimeMillis();
@@ -67,7 +70,7 @@ public class World {
 			putString(1, 4, screen, "tempend: " + tempend);
 			putString(1, 5, screen, "jumping: " + jumping);
 			putString(1, 6, screen, "ducking: " + ducking);
-			putString(1, 7, screen, "random: " + num);
+			putString(1, 7, screen, "char: " + tg.getCharacter(20,20));
 
 			// Resize World and Game
 			TerminalSize testsize = screen.getTerminalSize();
