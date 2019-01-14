@@ -18,23 +18,53 @@ public class World {
 	}
 
 	public static void main(String[] args) throws IOException {
-		int gameinterface = 2;
+		int gameinterface = 0;
 
 		// Display
 		Screen screen = new DefaultTerminalFactory().createScreen();
 		screen.startScreen();
+		TerminalSize size = screen.getTerminalSize();
+		TextGraphics tg = screen.newTextGraphics();
+
+		long score = 0;
+
+		// Start Menu
+		while (gameinterface == 0) {
+			TerminalSize testsize = screen.getTerminalSize();
+			if (testsize.getRows() != size.getRows() || testsize.getColumns() != size.getColumns()) {
+				screen.clear();
+				size = testsize;
+			}
+			putString(size.getColumns() / 2 - 14, size.getRows() / 2 - 3, screen, "WELCOME TO DESERT DINO DASH!");
+			putString(size.getColumns() / 2 - 12, size.getRows() / 2 - 1, screen, "A TERMINAL-BASED GAME BY:");
+			putString(size.getColumns() / 2 - 11, size.getRows() / 2, screen, "JEFF LIN & AMARA SHEIN");
+			putString(size.getColumns() / 2 - 11, size.getRows() / 2 + 3, screen, "PRESS ANY KEY TO BEGIN");
+			KeyStroke key = screen.pollInput();
+			if (key != null) {
+				if (key.getKeyType() == KeyType.Escape) {
+					screen.clear();
+					gameinterface = 2;
+				}
+				else {
+					gameinterface = 1;
+					screen.clear();
+				}
+			}
+			screen.doResizeIfNecessary();
+			screen.refresh();
+		}
 
 		// Clock
 		long tStart = System.currentTimeMillis();
 		long temptime = 0;
 		long tempend = 0;
+		long delay = 2000;
 
 		// Dinosaur data
 		Dinosaur dino = new Dinosaur();
 		boolean jumping = false;
 		boolean ducking = false;
 
-		long delay = 2000;
 		// Cacti data
 		Cactus cacto1 = new Cactus(1);
 		Cactus cacto2 = new Cactus(2);
@@ -64,18 +94,17 @@ public class World {
 		Random randgen = new Random(num);
 
 		// Draws Floor
-		TerminalSize size = screen.getTerminalSize();
-		TextGraphics tg = screen.newTextGraphics();
 		tg.drawLine(0,size.getRows()-1,size.getColumns()-1,size.getRows()-1,'\u2571');
 		tg.drawLine(0,size.getRows()-2,size.getColumns()-1,size.getRows()-2,'\u2571');
 		tg.drawLine(0,size.getRows()-3,size.getColumns()-1,size.getRows()-3,'\u2581');
 
-		while (gameinterface == 2) {
+		while (gameinterface == 1) {
 
 			// Score Keeping
 			long tEnd = System.currentTimeMillis();
 			long millis = tEnd - tStart;
-			putString(1, 2, screen, "Score: " + millis / 100);
+			score = millis / 100;
+			putString(1, 2, screen, "Score: " + score);
 			/*
 			putString(1, 3, screen, "temptime: " + temptime);
 			putString(1, 4, screen, "tempend: " + tempend);
@@ -96,7 +125,7 @@ public class World {
 			// User Input
 			KeyStroke key = screen.pollInput();
 			if (key != null) {
-				if (key.getKeyType() == KeyType.Escape) break;
+				if (key.getKeyType() == KeyType.Escape) gameinterface = 2;
 
 				if ((key.getKeyType() == KeyType.ArrowUp) && !jumping && !ducking) {
 					jumping = true;
@@ -144,7 +173,7 @@ public class World {
 				}
 				if (drawthis.drawn) {
 					drawthis.spawn(size.getRows()-3,millis,tg);
-					if (!drawthis.gamestatus) System.exit(0);
+					if (!drawthis.gamestatus) gameinterface = 2;
 				}
 			}
 			if (choice1 == 0) {
@@ -157,13 +186,38 @@ public class World {
 				}
 				if (drawthis.drawn) {
 					drawthis.spawn(size.getRows()-6,millis,tg);
-					if (!drawthis.gamestatus) System.exit(0);
+					if (!drawthis.gamestatus) gameinterface = 2;
 				}
 			}
 
 			screen.doResizeIfNecessary();
 			screen.refresh();
 		}
+
+		screen.clear();
+
+		// End Menu
+		while (gameinterface == 2) {
+			TerminalSize testsize = screen.getTerminalSize();
+			if (testsize.getRows() != size.getRows() || testsize.getColumns() != size.getColumns()) {
+				screen.clear();
+				size = testsize;
+			}
+
+			String scorestring = "SCORE: " + score;
+			putString(size.getColumns() / 2 - 4, size.getRows() / 2 - 3, screen, "GAME OVER");
+			putString(size.getColumns() / 2 - scorestring.length() / 2, size.getRows() / 2 - 1, screen, scorestring);
+			putString(size.getColumns() / 2 - 8, size.getRows() / 2 + 3, screen, "PRESS ESC TO QUIT");
+
+			KeyStroke key = screen.pollInput();
+			if (key != null) {
+				if (key.getKeyType() == KeyType.Escape) break;
+			}
+
+			screen.doResizeIfNecessary();
+			screen.refresh();
+		}
+
 		screen.stopScreen();
 	}
 }
