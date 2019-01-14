@@ -157,18 +157,18 @@ public class Dinosaur{
   public void jump(int col, int row, long millis, TextGraphics tg) {
     if (millis >= temptime + 100 && millis <= temptime + 120) {
       undraw(col,row,tg);
-      draw(col,row-3,tg);
+      draw(col,row-4,tg);
     }
     if (millis >= temptime + 300 && millis <= temptime + 320) {
-      undraw(col,row-3,tg);
-      draw(col,row-6,tg);
+      undraw(col,row-4,tg);
+      draw(col,row-7,tg);
     }
-    if (millis >= temptime + 600 && millis <= temptime + 620) {
-      undraw(col,row-6,tg);
-      draw(col,row-3,tg);
+    if (millis >= temptime + 700 && millis <= temptime + 720) {
+      undraw(col,row-7,tg);
+      draw(col,row-4,tg);
     }
-    if (millis >= temptime + 800) {
-      undraw(col,row-3,tg);
+    if (millis >= temptime + 900) {
+      undraw(col,row-4,tg);
       draw(col,row,tg);
     }
   }

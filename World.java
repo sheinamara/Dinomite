@@ -87,7 +87,7 @@ public class World {
 				if ((key.getKeyType() == KeyType.ArrowUp) && !jumping && !ducking) {
 					jumping = true;
 					temptime = millis;
-					tempend = temptime + 810;
+					tempend = temptime + 910;
 					dino.temptime = temptime;
 				}
 
@@ -117,15 +117,12 @@ public class World {
 			}
 
 			int choice = Math.abs(randgen.nextInt() % 6);
-
-
 			Cactus drawthis = obstacles[choice];
-
 			if (millis > delay && !drawthis.drawn) {
 				drawthis.drawn = true;
 				drawthis.temptime = millis;
 				drawthis.xcor = size.getColumns();
-				delay = millis + 2000;
+				delay = millis + 3500;
 			}
 			if (drawthis.drawn) {
 				drawthis.spawn(size.getRows()-3,millis,tg);
