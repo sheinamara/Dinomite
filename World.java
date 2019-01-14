@@ -32,15 +32,20 @@ public class World {
 		boolean ducking = false;
 
 		// Cacti data
+		long delay = 2000;
 		Cactus cacto1 = new Cactus(1);
 		Cactus cacto2 = new Cactus(2);
-		Cactus cacto3 = cacto1;
-		Cactus cacto4 = cacto2;
-		Object[] obstacles = new Object[4];
+		Cactus cacto3 = new Cactus(1);
+		Cactus cacto4 = new Cactus(2);
+		Cactus cacto5 = new Cactus(1);
+		Cactus cacto6 = new Cactus(2);
+		Cactus[] obstacles = new Cactus[6];
 		obstacles[0] = cacto1;
 		obstacles[1] = cacto2;
 		obstacles[2] = cacto3;
 		obstacles[3] = cacto4;
+		obstacles[4] = cacto5;
+		obstacles[5] = cacto6;
 
 		int num = (int)(Math.random() * 10000);
 		Random randgen = new Random(num);
@@ -111,16 +116,19 @@ public class World {
 				}
 			}
 
-			int choice = Math.abs(randgen.nextInt() % 2);
+			int choice = Math.abs(randgen.nextInt() % 6);
 
-			
-			if (!cacto1.drawn) {
-				cacto1.drawn = true;
-				cacto1.temptime = millis;
-				cacto1.xcor = 70;
+
+			Cactus drawthis = obstacles[choice];
+
+			if (millis > delay && !drawthis.drawn) {
+				drawthis.drawn = true;
+				drawthis.temptime = millis;
+				drawthis.xcor = size.getColumns();
+				delay = millis + 2000;
 			}
-			if (cacto1.drawn) {
-				cacto1.spawn(size.getRows()-3,millis,tg);
+			if (drawthis.drawn) {
+				drawthis.spawn(size.getRows()-3,millis,tg);
 			}
 
 
