@@ -5,7 +5,7 @@ import com.googlecode.lanterna.screen.*;
 import com.googlecode.lanterna.graphics.*;
 import java.awt.Color;
 
-public class Pterodactyl{
+public class Pterodactyl implements Drawable{
   /**
   * Allows the user to know whether or not they are still alive.
   */

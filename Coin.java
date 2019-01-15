@@ -5,7 +5,12 @@ import com.googlecode.lanterna.screen.*;
 import com.googlecode.lanterna.graphics.*;
 import java.awt.Color;
 
-public class Coin{
+public class Coin implements Drawable{
+  /**
+  * Allows the user to know whether or not they are still alive.
+  */
+  public boolean gamestatus;
+  
   /**
   * Allows the user to know whether or not the current instance is being drawn in the game.
   */
@@ -34,5 +39,41 @@ public class Coin{
     timepass = 0;
   }
 
-  
+  /**
+  * Checks if there are any characters where it is placed.
+  * If there are any, it sets the game status to false, ending the game.
+  * Otherwise, characters remain to be placed.
+  * @param col is the "x-value" of a specific character.
+  * @param row is the "y-value" of a specific character.
+  * @param char is the character we need to set something to.
+  * @param tg is an instance from TextGraphics.
+  */
+  private void placeCharacter(int col, int row, char character, TextGraphics tg) {
+    if (tg.getCharacter(col,row).getCharacter() != ' ') {
+      gamestatus = false;
+    }
+    else {
+      tg.setCharacter(col,row,character);
+    }
+  }
+
+  /**
+  * Draws a default coin.
+  * @param col is the "x-value" of the coin.
+  * @param row is the "y-value" of the coin.
+  * @param tg is an instance from TextGraphics.
+  */
+  public void draw(int col, int row, TextGraphics tg){
+    placeCharacter(col,row,'+',tg);
+  }
+
+  /**
+  * Undraws a default coin.
+  * @param col is the "x-value" of the coin.
+  * @param row is the "y-value" of the coin.
+  * @param tg is an instance from TextGraphics.
+  */
+  public void undraw(int col, int row, TextGraphics tg){
+    tg.setCharacter(col,row,' ');
+  }
 }

@@ -5,7 +5,7 @@ import com.googlecode.lanterna.screen.*;
 import com.googlecode.lanterna.graphics.*;
 import java.awt.Color;
 
-public class Dinosaur{
+public class Dinosaur implements Drawable{
   /**
   * The initial time input that is used as reference when timing the distance it travels or what happens to the obstacle.
   */
