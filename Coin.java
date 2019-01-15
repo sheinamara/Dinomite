@@ -10,7 +10,7 @@ public class Coin implements Drawable{
   * Allows the user to know whether or not they are still alive.
   */
   public boolean gamestatus;
-  
+
   /**
   * Allows the user to know whether or not the current instance is being drawn in the game.
   */
@@ -39,6 +39,8 @@ public class Coin implements Drawable{
     timepass = 0;
   }
 
+// COPIED AND PASTED FROM ANOTHER CLASS
+// NEED TO CHANGE???
   /**
   * Checks if there are any characters where it is placed.
   * If there are any, it sets the game status to false, ending the game.
