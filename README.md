@@ -45,6 +45,10 @@ We used simple **ASCII** characters to recreate the figures needed. Because this
 1/10: Finished Cactus class. Finished drawing method for Pterodactyl. 
 
 1/13: Adding documentation for all methods and making this README look pretty :)) Finished javadoc for Dinosaur, Cactus, and Pterodactyl classes.
+
+1/15: Created a Coin class and Drawable interface that was implemented by all current Drawable classes.
+
+1/16: DEMO!!! Discussed next steps in class and the implementation of a NonDino abstract class.
  
 
 
