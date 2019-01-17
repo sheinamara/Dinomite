@@ -41,3 +41,4 @@ public abstract class NonDino{
       tg.setCharacter(col,row,character);
     }
   }
+}

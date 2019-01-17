@@ -36,8 +36,7 @@ public class Coin implements Drawable extends NonDino{
     timepass = 0;
   }
 
-// COPIED AND PASTED FROM ANOTHER CLASS
-// NEED TO CHANGE???
+/*
   /**
   * Checks if there are any characters where it is placed.
   * If there are any, it sets the game status to false, ending the game.
@@ -55,6 +54,7 @@ public class Coin implements Drawable extends NonDino{
       tg.setCharacter(col,row,character);
     }
   }
+*/
 
   /**
   * Draws a default coin.

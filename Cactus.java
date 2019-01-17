@@ -43,6 +43,7 @@ public class Cactus implements Drawable extends NonDino{
     gamestatus = true;
   }
 
+/*
   /**
   * Creates the obstacle in the terminal and run them across the terminal.
   * @param col is the "x-value" of the left character of the cactus's base in a standard coordinate system.
@@ -79,6 +80,7 @@ public class Cactus implements Drawable extends NonDino{
       tg.setCharacter(col,row,character);
     }
   }
+*/
 
   /**
   * Draws a cactus that will vary in size based on the constructed cactus.

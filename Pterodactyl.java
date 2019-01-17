@@ -39,6 +39,7 @@ public class Pterodactyl implements Drawable extends NonDino{
     gamestatus = true;
   }
 
+/*
   /**
   * Creates the obstacle in the terminal and run them across the terminal.
   * @param col is the "x-value" of the head of the pterodactyl.
@@ -75,6 +76,7 @@ public class Pterodactyl implements Drawable extends NonDino{
       tg.setCharacter(col,row,character);
     }
   }
+*/
 
   /**
   * Draws a default pterodactyl.
