@@ -5,11 +5,8 @@ import com.googlecode.lanterna.screen.*;
 import com.googlecode.lanterna.graphics.*;
 import java.awt.Color;
 
-public class Pterodactyl implements Drawable{
-  /**
-  * Allows the user to know whether or not they are still alive.
-  */
-  public boolean gamestatus;
+public class Pterodactyl implements Drawable extends NonDino{
+  // ORIGINAL GAMESTATUS VARIABLE IS IN ABSTRACT CLASS NOW
 
   /**
   * Allows the user to know whether or not the current instance is being drawn in the game.
