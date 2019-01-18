@@ -5,7 +5,7 @@ import com.googlecode.lanterna.screen.*;
 import com.googlecode.lanterna.graphics.*;
 import java.awt.Color;
 
-public class Coin implements Drawable extends NonDino{
+public class Coin extends NonDino implements Drawable {
   /*
   VARIABLES THAT ARE NOW IN NONDINO ABSTRACT CLASS:
   1. public boolean status (used to be gamestatus)

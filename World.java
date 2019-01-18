@@ -8,7 +8,6 @@ import java.awt.Color;
 import java.util.*;
 import java.io.*;
 
-
 public class World {
 
 	public static void putString(int x, int y, Screen screen, String str) {

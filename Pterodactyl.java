@@ -5,7 +5,7 @@ import com.googlecode.lanterna.screen.*;
 import com.googlecode.lanterna.graphics.*;
 import java.awt.Color;
 
-public class Pterodactyl implements Drawable extends NonDino{
+public class Pterodactyl extends NonDino implements Drawable {
   /*
   VARIABLES THAT ARE NOW IN NONDINO ABSTRACT CLASS:
   1. public boolean status (used to be gamestatus)
@@ -23,7 +23,7 @@ public class Pterodactyl implements Drawable extends NonDino{
   public Pterodactyl(){
     drawn =  false;
     timepass = 0;
-    gamestatus = true;
+    status = true;
   }
 
   /*

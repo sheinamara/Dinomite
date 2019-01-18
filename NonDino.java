@@ -1,3 +1,10 @@
+import com.googlecode.lanterna.*;
+import com.googlecode.lanterna.input.*;
+import com.googlecode.lanterna.terminal.*;
+import com.googlecode.lanterna.screen.*;
+import com.googlecode.lanterna.graphics.*;
+import java.awt.Color;
+
 public abstract class NonDino{
   /**
   * Allows the user to know whether or not they are still alive.
@@ -52,12 +59,18 @@ public abstract class NonDino{
   * @param char is the character we need to set something to.
   * @param tg is an instance from TextGraphics.
   */
-  private void placeCharacter(int col, int row, char character, TextGraphics tg) {
+  public void placeCharacter(int col, int row, char character, TextGraphics tg) {
     if (tg.getCharacter(col,row).getCharacter() != ' ') {
       status = false;
     }
     else {
       tg.setCharacter(col,row,character);
     }
+  }
+
+  public void draw(int col, int row, TextGraphics tg) {
+  }
+
+  public void undraw(int col, int row, TextGraphics tg) {
   }
 }
