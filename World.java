@@ -172,8 +172,8 @@ public class World {
 					delay = millis + 3000;
 				}
 				if (drawthis.drawn) {
-					drawthis.spawn(size.getRows()-3,millis,tg);
-					if (!drawthis.gamestatus) gameinterface = 2;
+					drawthis.spawn(size.getRows()-3,1,millis,tg);
+					if (!drawthis.status) gameinterface = 2;
 				}
 			}
 			if (choice1 == 0) {
@@ -185,8 +185,8 @@ public class World {
 					delay = millis + 3000;
 				}
 				if (drawthis.drawn) {
-					drawthis.spawn(size.getRows()-6,millis,tg);
-					if (!drawthis.gamestatus) gameinterface = 2;
+					drawthis.spawn(size.getRows()-6,2,millis,tg);
+					if (!drawthis.status) gameinterface = 2;
 				}
 			}
 
