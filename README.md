@@ -31,6 +31,12 @@ We used simple **ASCII** characters to recreate the figures needed. Because this
 
 1/13: Finished functioning of Dinosaur, Cactus, Pterodactyl, and implemented all into World. Created start and end menus for presentability.
 
+1/16: DEMO!!! Discussed next steps in class and the implementation of a NonDino abstract class.
+
+1/17: Made edits to prototype and remade UML diagram for submission.
+
+1/18: Rearranged methods and variables from classes to abstract superclass NonDino.
+
 ## Amara's Development Log
 1/3: Created three classes.
 
