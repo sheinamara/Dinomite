@@ -49,6 +49,8 @@ We used simple **ASCII** characters to recreate the figures needed. Because this
 1/15: Created a Coin class and Drawable interface that was implemented by all current Drawable classes.
 
 1/16: DEMO!!! Discussed next steps in class and the implementation of a NonDino abstract class.
+
+1/17: Began creating and extending the abstract class that we discussed in detail from yesterday.
  
 
 
