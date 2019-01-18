@@ -57,6 +57,8 @@ We used simple **ASCII** characters to recreate the figures needed. Because this
 1/16: DEMO!!! Discussed next steps in class and the implementation of a NonDino abstract class.
 
 1/17: Began creating and extending the abstract class that we discussed in detail from yesterday.
+
+1/18: Deleted certain variables and methods from Cactus.java, Pterodactyl.java, and Coin.java in order to extend a broader abstract class, ultimately making World.java better and easier. It will also make class hierarchy more logical. Submitted edited prototype.
  
 
 
