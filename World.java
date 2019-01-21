@@ -26,6 +26,7 @@ public class World {
 		TextGraphics tg = screen.newTextGraphics();
 
 		long score = 0;
+		long extra = 0;
 
 		// Start Menu
 		while (gameinterface == 0) {
@@ -88,6 +89,9 @@ public class World {
 		flyers[1] = flyboi2;
 		flyers[2] = flyboi3;
 
+		// Coin data
+		Coin bling = new Coin();
+
 		// Random cacti
 		int num = (int)(Math.random() * 10000);
 		Random randgen = new Random(num);
@@ -103,7 +107,7 @@ public class World {
 			long tEnd = System.currentTimeMillis();
 			long millis = tEnd - tStart;
 			score = millis / 100;
-			putString(1, 2, screen, "Score: " + score);
+			putString(1, 2, screen, "Score: " + (score + extra));
 			/*
 			putString(1, 3, screen, "temptime: " + temptime);
 			putString(1, 4, screen, "tempend: " + tempend);
@@ -176,16 +180,33 @@ public class World {
 				}
 			}
 			if (choice1 == 0) {
-				Pterodactyl drawthis = flyers[choice3];
-				if (millis > delay && !drawthis.drawn) {
-					drawthis.drawn = true;
-					drawthis.temptime = millis;
-					drawthis.xcor = size.getColumns()-15;
-					delay = millis + 3000;
+				if (Math.abs(randgen.nextInt() % 4) == 0) {
+					if (millis > delay && !bling.drawn) {
+						bling.drawn = true;
+						bling.temptime = millis;
+						bling.xcor = size.getColumns()-5;
+						delay = millis + 3000;
+					}
+					if (bling.drawn) {
+						bling.spawn(size.getRows()-6,1,millis,tg);
+						if (!bling.status) {
+							bling.drawn = false;
+							extra += 100;
+						}
+					}
 				}
-				if (drawthis.drawn) {
-					drawthis.spawn(size.getRows()-6,2,millis,tg);
-					if (!drawthis.status) gameinterface = 2;
+				else {
+					Pterodactyl drawthis = flyers[choice3];
+					if (millis > delay && !drawthis.drawn) {
+						drawthis.drawn = true;
+						drawthis.temptime = millis;
+						drawthis.xcor = size.getColumns()-15;
+						delay = millis + 3000;
+					}
+					if (drawthis.drawn) {
+						drawthis.spawn(size.getRows()-6,2,millis,tg);
+						if (!drawthis.status) gameinterface = 2;
+					}
 				}
 			}
 

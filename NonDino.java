@@ -44,7 +44,7 @@ public abstract class NonDino{
         draw(xcor,row,tg);
         timepass += 1;
     }
-    if (xcor <= 3) {
+    if (xcor <= 3 && drawn) {
       drawn = false;
       undraw(xcor,row,tg);
     }

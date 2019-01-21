@@ -21,6 +21,7 @@ public class Coin extends NonDino implements Drawable {
   public Coin(){
     drawn = false;
     timepass = 0;
+    status = true;
   }
 
   /*
@@ -36,7 +37,7 @@ public class Coin extends NonDino implements Drawable {
   * @param tg is an instance from TextGraphics.
   */
   public void draw(int col, int row, TextGraphics tg){
-    placeCharacter(col,row,'+',tg);
+    placeCharacter(col,row,'\u24B8',tg);
   }
 
   /**
