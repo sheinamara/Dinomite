@@ -37,6 +37,8 @@ We used simple **ASCII** characters to recreate the figures needed. Because this
 
 1/18: Rearranged methods and variables from classes to abstract superclass NonDino.
 
+1/20: Added functionality of Coins.
+
 ## Amara's Development Log
 1/3: Created three classes.
 
