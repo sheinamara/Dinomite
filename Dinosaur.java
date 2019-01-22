@@ -12,45 +12,80 @@ public class Dinosaur implements Drawable{
   public long temptime;
 
   /**
+  * There are two types of dinosaurs: 1 indicates the default t-rex while 2 indicates a stegosaurus.
+  */
+  private int type;
+
+  /**
   * The default constructor for a dinosaur.
   */
-  public Dinosaur(){
+  public Dinosaur(int type_){
+    type = type_;
   }
 
   /**
-  * Draws a default dinosaur that is five units tall and ten units wide.
+  * Draws a t-rex that is five units tall and ten units wide or a stegosaurus that is four units tall an eleven units wide.
   * @param col is the "x-value" of the left character of the dinosaur head in a standard coordinate system.
   * @param row is the "y-value" of the right leg of the dinosaur's legs in a standard coordinate system.
   * @param tg is an instance from TextGraphics.
   */
   public void draw(int col, int row, TextGraphics tg){
-    // head
-    tg.setCharacter(col,row-4,'[');
-    tg.setCharacter(col+2,row-4,'-');
-    tg.setCharacter(col+3,row-4,']');
-    // neck
-    tg.setCharacter(col,row-3,'/');
-    tg.setCharacter(col+1,row-3,'/');
-    // upper body
-    tg.setCharacter(col-6,row-2,'\\');
-    tg.setCharacter(col-5,row-2,'\\');
-    tg.setCharacter(col-4,row-2,'[');
-    tg.setCharacter(col-3,row-2,'-');
-    tg.setCharacter(col-2,row-2,'-');
-    tg.setCharacter(col-1,row-2,'-');
-    tg.setCharacter(col,row-2,'-');
-    tg.setCharacter(col+1,row-2,']');
-    tg.setCharacter(col+2,row-2,'=');
-    // lower body
-    tg.setCharacter(col-4,row-1,'[');
-    tg.setCharacter(col-3,row-1,'-');
-    tg.setCharacter(col-2,row-1,'-');
-    tg.setCharacter(col-1,row-1,'-');
-    tg.setCharacter(col,row-1,'-');
-    tg.setCharacter(col+1,row-1,']');
-    // legs
-    tg.setCharacter(col-3,row,'|');
-    tg.setCharacter(col,row,'|');
+    if (type == 1){
+      // head
+      tg.setCharacter(col,row-4,'[');
+      tg.setCharacter(col+2,row-4,'-');
+      tg.setCharacter(col+3,row-4,']');
+      // neck
+      tg.setCharacter(col,row-3,'/');
+      tg.setCharacter(col+1,row-3,'/');
+      // upper body
+      tg.setCharacter(col-6,row-2,'\\');
+      tg.setCharacter(col-5,row-2,'\\');
+      tg.setCharacter(col-4,row-2,'[');
+      tg.setCharacter(col-3,row-2,'-');
+      tg.setCharacter(col-2,row-2,'-');
+      tg.setCharacter(col-1,row-2,'-');
+      tg.setCharacter(col,row-2,'-');
+      tg.setCharacter(col+1,row-2,']');
+      tg.setCharacter(col+2,row-2,'=');
+      // lower body
+      tg.setCharacter(col-4,row-1,'[');
+      tg.setCharacter(col-3,row-1,'-');
+      tg.setCharacter(col-2,row-1,'-');
+      tg.setCharacter(col-1,row-1,'-');
+      tg.setCharacter(col,row-1,'-');
+      tg.setCharacter(col+1,row-1,']');
+      // legs
+      tg.setCharacter(col-3,row,'|');
+      tg.setCharacter(col,row,'|');
+    }
+    if (type == 2){
+      // legs
+      tg.setCharacter(col+1,row,'|');
+      tg.setCharacter(col,row,'_');
+      tg.setCharacter(col-1,row,'|');
+      tg.setCharacter(col-2,row,'|');
+      tg.setCharacter(col-3,row,'_');
+      tg.setCharacter(col-4,row,'|');
+      // lower body
+      tg.setCharacter(col-6,row-1,'/');
+      tg.setCharacter(col-5,row-1,'(');
+      tg.setCharacter(col-2,row-1,'(');
+      tg.setCharacter(col+1,row-1,'|');
+      // upper body
+      tg.setCharacter(col+2,row-2,'/');
+      tg.setCharacter(col+1,row-2,'/');
+      tg.setCharacter(col,row-2,'_');
+      tg.setCharacter(col-1,row-2,'_');
+      tg.setCharacter(col-2,row-2,'_');
+      tg.setCharacter(col-3,row-2,'_');
+      tg.setCharacter(col-4,row-2,'_');
+      tg.setCharacter(col-5,row-2,'_');
+      // head
+      tg.setCharacter(col+1,row-3,'/');
+      tg.setCharacter(col+2,row-3,'-');
+      tg.setCharacter(col+3,row-3,')');
+    }
   }
 
   /**
@@ -60,33 +95,62 @@ public class Dinosaur implements Drawable{
   * @param tg is an instance from TextGraphics.
   */
   public void undraw(int col, int row, TextGraphics tg){
-    // head
-    tg.setCharacter(col,row-4,' ');
-    tg.setCharacter(col+2,row-4,' ');
-    tg.setCharacter(col+3,row-4,' ');
-    // neck
-    tg.setCharacter(col,row-3,' ');
-    tg.setCharacter(col+1,row-3,' ');
-    // upper body
-    tg.setCharacter(col-6,row-2,' ');
-    tg.setCharacter(col-5,row-2,' ');
-    tg.setCharacter(col-4,row-2,' ');
-    tg.setCharacter(col-3,row-2,' ');
-    tg.setCharacter(col-2,row-2,' ');
-    tg.setCharacter(col-1,row-2,' ');
-    tg.setCharacter(col,row-2,' ');
-    tg.setCharacter(col+1,row-2,' ');
-    tg.setCharacter(col+2,row-2,' ');
-    // lower body
-    tg.setCharacter(col-4,row-1,' ');
-    tg.setCharacter(col-3,row-1,' ');
-    tg.setCharacter(col-2,row-1,' ');
-    tg.setCharacter(col-1,row-1,' ');
-    tg.setCharacter(col,row-1,' ');
-    tg.setCharacter(col+1,row-1,' ');
-    // legs
-    tg.setCharacter(col-3,row,' ');
-    tg.setCharacter(col,row,' ');
+    if (type == 1){
+      // head
+      tg.setCharacter(col,row-4,' ');
+      tg.setCharacter(col+2,row-4,' ');
+      tg.setCharacter(col+3,row-4,' ');
+      // neck
+      tg.setCharacter(col,row-3,' ');
+      tg.setCharacter(col+1,row-3,' ');
+      // upper body
+      tg.setCharacter(col-6,row-2,' ');
+      tg.setCharacter(col-5,row-2,' ');
+      tg.setCharacter(col-4,row-2,' ');
+      tg.setCharacter(col-3,row-2,' ');
+      tg.setCharacter(col-2,row-2,' ');
+      tg.setCharacter(col-1,row-2,' ');
+      tg.setCharacter(col,row-2,' ');
+      tg.setCharacter(col+1,row-2,' ');
+      tg.setCharacter(col+2,row-2,' ');
+      // lower body
+      tg.setCharacter(col-4,row-1,' ');
+      tg.setCharacter(col-3,row-1,' ');
+      tg.setCharacter(col-2,row-1,' ');
+      tg.setCharacter(col-1,row-1,' ');
+      tg.setCharacter(col,row-1,' ');
+      tg.setCharacter(col+1,row-1,' ');
+      // legs
+      tg.setCharacter(col-3,row,' ');
+      tg.setCharacter(col,row,' ');
+    }
+    if (type == 2){
+      // legs
+      tg.setCharacter(col+1,row,' ');
+      tg.setCharacter(col,row,' ');
+      tg.setCharacter(col-1,row,' ');
+      tg.setCharacter(col-2,row,' ');
+      tg.setCharacter(col-3,row,' ');
+      tg.setCharacter(col-4,row,' ');
+      // lower body
+      tg.setCharacter(col-6,row-1,' ');
+      tg.setCharacter(col-5,row-1,' ');
+      tg.setCharacter(col-2,row-1,' ');
+      tg.setCharacter(col+1,row-1,' ');
+      // upper body
+      tg.setCharacter(col+2,row-2,' ');
+      tg.setCharacter(col+1,row-2,' ');
+      tg.setCharacter(col,row-2,' ');
+      tg.setCharacter(col-1,row-2,' ');
+      tg.setCharacter(col-2,row-2,' ');
+      tg.setCharacter(col-3,row-2,' ');
+      tg.setCharacter(col-4,row-2,' ');
+      tg.setCharacter(col-5,row-2,' ');
+      // head
+      tg.setCharacter(col+1,row-3,' ');
+      tg.setCharacter(col+2,row-3,' ');
+      tg.setCharacter(col+3,row-3,' ');
+    }
   }
 
   /**
@@ -110,19 +174,36 @@ public class Dinosaur implements Drawable{
   * @param tg is an instance from TextGraphics.
   */
   public void duckhead(int col, int row, TextGraphics tg){
-    // head DUCKED DOWN
-    tg.setCharacter(col+4,row-2,'[');
-    tg.setCharacter(col+5,row-2,'-');
-    tg.setCharacter(col+6,row-2,']');
-    // neck DUCKED DOWN
-    tg.setCharacter(col+3,row-2,'=');
-    // head original
-    tg.setCharacter(col,row-4,' ');
-    tg.setCharacter(col+2,row-4,' ');
-    tg.setCharacter(col+3,row-4,' ');
-    // neck original
-    tg.setCharacter(col,row-3,' ');
-    tg.setCharacter(col+1,row-3,' ');
+    if (type == 1){
+      // head DUCKED DOWN
+      tg.setCharacter(col+4,row-2,'[');
+      tg.setCharacter(col+5,row-2,'-');
+      tg.setCharacter(col+6,row-2,']');
+      // neck DUCKED DOWN
+      tg.setCharacter(col+3,row-2,'=');
+      // head original
+      tg.setCharacter(col,row-4,' ');
+      tg.setCharacter(col+2,row-4,' ');
+      tg.setCharacter(col+3,row-4,' ');
+      // neck original
+      tg.setCharacter(col,row-3,' ');
+      tg.setCharacter(col+1,row-3,' ');
+    }
+    if (type == 2){
+      // head DUCKED DOWN
+      tg.setCharacter(col+3,row-1,'(');
+      tg.setCharacter(col+4,row-1,'-');
+      tg.setCharacter(col+5,row-1,')');
+      // neck DUCKED DOWN
+      tg.setCharacter(col+2,row-1,' ');
+      // head original
+      tg.setCharacter(col+1,row-3,' ');
+      tg.setCharacter(col+2,row-3,' ');
+      tg.setCharacter(col+3,row-3,' ');
+      // neck original
+      tg.setCharacter(col+2,row-2,' ');
+      tg.setCharacter(col+1,row-2,' ');
+    }
   }
 
   /**
