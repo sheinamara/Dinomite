@@ -1,6 +1,6 @@
 # Desert Dino Dash
 ## Created by Team Dinomite (Jeff Lin and Amara Shein)
-Based on the Google Chrome offline game, **Desert Dino Dash** is a single-player game that uses the arrow keys to have a dinosaur avoid obstacles. For our demo version, we have included all of the basic features of the original game. After the user compiles and runs the game, the score counting begins. The **T-Rex** is running on a horizontally scrolling screen and has to **jump** and/or **duck** to avoid **cacti** and **pterodactyls**. 
+Based on the Google Chrome offline game, **Desert Dino Dash** is a single-player game that uses the arrow keys to have a dinosaur avoid obstacles. For our demo version, we have included all of the basic features of the original game. After the user compiles and runs the game, the score counting begins. The **T-Rex** or **Stegosaurus** is running on a horizontally scrolling screen and has to **jump** and/or **duck** to avoid **cacti** and **pterodactyls**.  
 
 We used simple **ASCII** characters to recreate the figures needed. Because this is a terminal based game and we are using Java, we used **Lantera**, a library that allowed us to write easy semi-graphical user interfaces in a text-only environment. Feel free to take a look at our code to see how we were able to make this happen; we tried our best to include javadoc to almost everything to make lives easier!
 ## Compiling Instructions
@@ -17,6 +17,7 @@ We used simple **ASCII** characters to recreate the figures needed. Because this
 2. Use your down arrow key to duck.
 3. Collect coins to increase your score.
 4. Survive!
+5. If you die, replay!
 ## Jeff's Development Log
 1/3: Review terminal manipulation and make changes to fit our game.
 
