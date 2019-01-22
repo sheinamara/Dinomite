@@ -89,7 +89,7 @@ public class Dinosaur implements Drawable{
   }
 
   /**
-  * Undraws a default dinosaur that is five units tall and ten units wide.
+  * Undraws a t-rex that is five units tall and ten units wide or a stegosaurus that is four units tall an eleven units wide.
   * @param col is the "x-value" of the left character of the dinosaur head in a standard coordinate system.
   * @param row is the "y-value" of the right leg of the dinosaur's legs in a standard coordinate system.
   * @param tg is an instance from TextGraphics.
