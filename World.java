@@ -231,7 +231,8 @@ public class World {
 				String scorestring = "SCORE: " + score;
 				putString(size.getColumns() / 2 - 4, size.getRows() / 2 - 3, screen, "GAME OVER");
 				putString(size.getColumns() / 2 - scorestring.length() / 2, size.getRows() / 2 - 1, screen, scorestring);
-				putString(size.getColumns() / 2 - 8, size.getRows() / 2 + 3, screen, "PRESS ESC TO QUIT");
+
+				putString(size.getColumns() / 2 - 8, size.getRows() / 2 + 4, screen, "PRESS ESC TO QUIT");
 
 				KeyStroke key = screen.pollInput();
 				if (key != null) {
