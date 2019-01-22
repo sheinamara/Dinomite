@@ -5,13 +5,12 @@ We used simple **ASCII** characters to recreate the figures needed. Because this
 ## Compiling Instructions
 1. Open your terminal.
 2. Clone the repository from GitHub by typing `git clone git@github.com:sheinamara/MKS21X-FinalProject.git` into your terminal.
-3. Compile and run the game.
 #### Linux, macOS, Mac OS X, or OS X
-4. Compile by using `javac -cp lanterna.jar:. World.java`.
-5. Run by using `java -cp lanterna.jar:. World`.
+4. Compile by typing `javac -cp lanterna.jar:. World.java` into your terminal.
+5. Run by typing `java -cp lanterna.jar:. World` into your terminal.
 #### Windows
-4. Compile by using `javac -cp "lantera.jar;." World.java`.
-5. Run by using `java -cp "lantera.jar;." World`.
+4. Compile by typing `javac -cp "lantera.jar;." World.java` into your terminal.
+5. Run by typing `java -cp "lantera.jar;." World` into your terminal.
 ## Gaming Instructions
 1. Use your up arrow key to jump.
 2. Use your down arrow key to duck.
