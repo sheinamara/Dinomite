@@ -213,20 +213,36 @@ public class Dinosaur implements Drawable{
   * @param tg is an instance from TextGraphics.
   */
   public void unduckhead(int col, int row, TextGraphics tg){
-    // head ducked down
-    tg.setCharacter(col+4,row-2,' ');
-    tg.setCharacter(col+5,row-2,' ');
-    tg.setCharacter(col+6,row-2,' ');
-    // neck ducked down
-    tg.setCharacter(col+3,row-2,' ');
-    // head original
-    tg.setCharacter(col,row-4,'[');
-    tg.setCharacter(col+2,row-4,'-');
-    tg.setCharacter(col+3,row-4,']');
-    // neck original
-    tg.setCharacter(col,row-3,'/');
-    tg.setCharacter(col+1,row-3,'/');
-    // upper body
+    if (type == 1) {
+      // head ducked down
+      tg.setCharacter(col+4,row-2,' ');
+      tg.setCharacter(col+5,row-2,' ');
+      tg.setCharacter(col+6,row-2,' ');
+      // neck ducked down
+      tg.setCharacter(col+3,row-2,' ');
+      // head original
+      tg.setCharacter(col,row-4,'[');
+      tg.setCharacter(col+2,row-4,'-');
+      tg.setCharacter(col+3,row-4,']');
+      // neck original
+      tg.setCharacter(col,row-3,'/');
+      tg.setCharacter(col+1,row-3,'/');
+    }
+    if (type == 2) {
+      // head DUCKED DOWN
+      tg.setCharacter(col+3,row-1,' ');
+      tg.setCharacter(col+4,row-1,' ');
+      tg.setCharacter(col+5,row-1,' ');
+      // neck DUCKED DOWN
+      tg.setCharacter(col+2,row-1,' ');
+      // head original
+      tg.setCharacter(col+1,row-3,'/');
+      tg.setCharacter(col+2,row-3,'-');
+      tg.setCharacter(col+3,row-3,')');
+      // neck original
+      tg.setCharacter(col+2,row-2,'/');
+      tg.setCharacter(col+1,row-2,'/');
+    }
   }
 
   /**
